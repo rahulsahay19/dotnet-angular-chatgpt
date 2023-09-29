@@ -1,14 +1,16 @@
 {
   "version": 2,
-  "dgSpecHash": "qr5KgXpyE+u3QK0yqoVPlmzFnt8N3KhG4HIFeiHvpqz3+HIQXwUU/QriyMOiopa8SFje77N7ULuyv3p007o2hg==",
+  "dgSpecHash": "PehMmyJApOzykqkofV7D2rxEJujSG8dzvE6t25b4gilAd1DssbkXOxo8H/G7w6iWGHWoBMchoJo+Na2BkOEyRw==",
   "success": true,
   "projectFilePath": "/Users/rahsahay/Rahul/MyExperiments/MicroServices/dotnet/Ecommerce/API/API.csproj",
   "expectedPackageFiles": [
+    "/Users/rahsahay/.nuget/packages/humanizer.core/2.14.1/humanizer.core.2.14.1.nupkg.sha512",
     "/Users/rahsahay/.nuget/packages/microsoft.aspnetcore.openapi/7.0.11/microsoft.aspnetcore.openapi.7.0.11.nupkg.sha512",
     "/Users/rahsahay/.nuget/packages/microsoft.data.sqlite.core/7.0.11/microsoft.data.sqlite.core.7.0.11.nupkg.sha512",
     "/Users/rahsahay/.nuget/packages/microsoft.entityframeworkcore/7.0.11/microsoft.entityframeworkcore.7.0.11.nupkg.sha512",
     "/Users/rahsahay/.nuget/packages/microsoft.entityframeworkcore.abstractions/7.0.11/microsoft.entityframeworkcore.abstractions.7.0.11.nupkg.sha512",
     "/Users/rahsahay/.nuget/packages/microsoft.entityframeworkcore.analyzers/7.0.11/microsoft.entityframeworkcore.analyzers.7.0.11.nupkg.sha512",
+    "/Users/rahsahay/.nuget/packages/microsoft.entityframeworkcore.design/7.0.11/microsoft.entityframeworkcore.design.7.0.11.nupkg.sha512",
     "/Users/rahsahay/.nuget/packages/microsoft.entityframeworkcore.relational/7.0.11/microsoft.entityframeworkcore.relational.7.0.11.nupkg.sha512",
     "/Users/rahsahay/.nuget/packages/microsoft.entityframeworkcore.sqlite/7.0.11/microsoft.entityframeworkcore.sqlite.7.0.11.nupkg.sha512",
     "/Users/rahsahay/.nuget/packages/microsoft.entityframeworkcore.sqlite.core/7.0.11/microsoft.entityframeworkcore.sqlite.core.7.0.11.nupkg.sha512",
@@ -24,6 +26,7 @@
     "/Users/rahsahay/.nuget/packages/microsoft.extensions.options/7.0.0/microsoft.extensions.options.7.0.0.nupkg.sha512",
     "/Users/rahsahay/.nuget/packages/microsoft.extensions.primitives/7.0.0/microsoft.extensions.primitives.7.0.0.nupkg.sha512",
     "/Users/rahsahay/.nuget/packages/microsoft.openapi/1.4.3/microsoft.openapi.1.4.3.nupkg.sha512",
+    "/Users/rahsahay/.nuget/packages/mono.texttemplating/2.2.1/mono.texttemplating.2.2.1.nupkg.sha512",
     "/Users/rahsahay/.nuget/packages/sqlitepclraw.bundle_e_sqlite3/2.1.4/sqlitepclraw.bundle_e_sqlite3.2.1.4.nupkg.sha512",
     "/Users/rahsahay/.nuget/packages/sqlitepclraw.core/2.1.4/sqlitepclraw.core.2.1.4.nupkg.sha512",
     "/Users/rahsahay/.nuget/packages/sqlitepclraw.lib.e_sqlite3/2.1.4/sqlitepclraw.lib.e_sqlite3.2.1.4.nupkg.sha512",
@@ -32,6 +35,7 @@
     "/Users/rahsahay/.nuget/packages/swashbuckle.aspnetcore.swagger/6.5.0/swashbuckle.aspnetcore.swagger.6.5.0.nupkg.sha512",
     "/Users/rahsahay/.nuget/packages/swashbuckle.aspnetcore.swaggergen/6.5.0/swashbuckle.aspnetcore.swaggergen.6.5.0.nupkg.sha512",
     "/Users/rahsahay/.nuget/packages/swashbuckle.aspnetcore.swaggerui/6.5.0/swashbuckle.aspnetcore.swaggerui.6.5.0.nupkg.sha512",
+    "/Users/rahsahay/.nuget/packages/system.codedom/4.4.0/system.codedom.4.4.0.nupkg.sha512",
     "/Users/rahsahay/.nuget/packages/system.memory/4.5.3/system.memory.4.5.3.nupkg.sha512",
     "/Users/rahsahay/.nuget/packages/system.text.encodings.web/7.0.0/system.text.encodings.web.7.0.0.nupkg.sha512",
     "/Users/rahsahay/.nuget/packages/system.text.json/7.0.0/system.text.json.7.0.0.nupkg.sha512"

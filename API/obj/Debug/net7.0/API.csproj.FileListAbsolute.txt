@@ -67,3 +67,7 @@
 /Users/rahsahay/Rahul/MyExperiments/MicroServices/dotnet/Ecommerce/API/bin/Debug/net7.0/Infrastructure.dll
 /Users/rahsahay/Rahul/MyExperiments/MicroServices/dotnet/Ecommerce/API/bin/Debug/net7.0/Infrastructure.pdb
 /Users/rahsahay/Rahul/MyExperiments/MicroServices/dotnet/Ecommerce/API/bin/Debug/net7.0/Core.pdb
+/Users/rahsahay/Rahul/MyExperiments/MicroServices/dotnet/Ecommerce/API/bin/Debug/net7.0/Humanizer.dll
+/Users/rahsahay/Rahul/MyExperiments/MicroServices/dotnet/Ecommerce/API/bin/Debug/net7.0/Microsoft.EntityFrameworkCore.Design.dll
+/Users/rahsahay/Rahul/MyExperiments/MicroServices/dotnet/Ecommerce/API/bin/Debug/net7.0/Mono.TextTemplating.dll
+/Users/rahsahay/Rahul/MyExperiments/MicroServices/dotnet/Ecommerce/API/bin/Debug/net7.0/System.CodeDom.dll
