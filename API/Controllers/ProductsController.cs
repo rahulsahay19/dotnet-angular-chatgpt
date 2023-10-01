@@ -8,18 +8,25 @@ namespace API.Controllers
     [ApiController]
     public class ProductsController : ControllerBase
     {
-        private readonly IProductRepository _productRepository;
-
-        public ProductsController(IProductRepository productRepository)
+        private readonly IGenericRepository<Product> _productRepository;
+        private readonly IGenericRepository<ProductType> _productTypeRepository;
+        private readonly IGenericRepository<ProductBrand> _productBrandRepository;
+        
+        public ProductsController(
+            IGenericRepository<Product> productRepository,
+            IGenericRepository<ProductBrand> productBrandRepository,
+            IGenericRepository<ProductType> productTypeRepository)
         {
             _productRepository = productRepository;
+            _productBrandRepository = productBrandRepository;
+            _productTypeRepository = productTypeRepository;
         }
 
         // GET: api/v1/Products
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Product>>> GetProducts()
         {
-            var products = await _productRepository.GetProductsAsync();
+            var products = await _productRepository.GetProductsAsync(p => p.ProductType, p => p.ProductBrand);
             return Ok(products);
         }
 
@@ -27,20 +34,22 @@ namespace API.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<Product>> GetProduct(int id)
         {
-            var product = await _productRepository.GetProductByIdAsync(id);
+            var product = await _productRepository.GetProductByIdAsync(id, p => p.ProductType, p => p.ProductBrand);
+
+            //var product = await _productRepository.GetProductByIdAsync(id);
             return Ok(product);
         }
 
         [HttpGet("brands")]
         public async Task<ActionResult<IEnumerable<ProductBrand>>> GetProductBrands()
         {
-            return Ok(await _productRepository.GetProductBrandsAsync());
+            return Ok(await _productBrandRepository.GetProductBrandsAsync());
         }
         
         [HttpGet("types")]
         public async Task<ActionResult<IEnumerable<ProductType>>> GetProductTypes()
         {
-            return Ok(await _productRepository.GetProductTypesAsync());
+            return Ok(await _productTypeRepository.GetProductTypesAsync());
         }
     }
 }
