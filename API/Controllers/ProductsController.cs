@@ -1,5 +1,6 @@
 using Core.Entities;
 using Core.Interfaces;
+using Infrastructure.Data.Specifications;
 using Microsoft.AspNetCore.Mvc;
 
 namespace API.Controllers
@@ -8,14 +9,14 @@ namespace API.Controllers
     [ApiController]
     public class ProductsController : ControllerBase
     {
-        private readonly IGenericRepository<Product> _productRepository;
-        private readonly IGenericRepository<ProductType> _productTypeRepository;
-        private readonly IGenericRepository<ProductBrand> _productBrandRepository;
+        private readonly IRepository<Product> _productRepository;
+        private readonly IRepository<ProductType> _productTypeRepository;
+        private readonly IRepository<ProductBrand> _productBrandRepository;
         
         public ProductsController(
-            IGenericRepository<Product> productRepository,
-            IGenericRepository<ProductBrand> productBrandRepository,
-            IGenericRepository<ProductType> productTypeRepository)
+            IRepository<Product> productRepository,
+            IRepository<ProductBrand> productBrandRepository,
+            IRepository<ProductType> productTypeRepository)
         {
             _productRepository = productRepository;
             _productBrandRepository = productBrandRepository;
@@ -26,7 +27,13 @@ namespace API.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Product>>> GetProducts()
         {
-            var products = await _productRepository.GetProductsAsync(p => p.ProductType, p => p.ProductBrand);
+            // Create a specification
+            var spec = new ProductWithTypesAndBrandSpecification();
+
+            // Use the specification with the repository to get filtered and included results
+            var products = await _productRepository.ListAsync(spec);
+
+            //var products = await _productRepository.GetProductsAsync(p => p.ProductType, p => p.ProductBrand);
             return Ok(products);
         }
 
@@ -34,9 +41,11 @@ namespace API.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<Product>> GetProduct(int id)
         {
-            var product = await _productRepository.GetProductByIdAsync(id, p => p.ProductType, p => p.ProductBrand);
+            // Create a specification
+            var spec = new ProductWithTypesAndBrandSpecification(id);
 
-            //var product = await _productRepository.GetProductByIdAsync(id);
+            // Use the specification with the repository to get filtered and included results
+            var product = await _productRepository.GetByIdAsync(spec);
             return Ok(product);
         }
 
