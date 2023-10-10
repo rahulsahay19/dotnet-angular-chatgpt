@@ -1,11 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "PehMmyJApOzykqkofV7D2rxEJujSG8dzvE6t25b4gilAd1DssbkXOxo8H/G7w6iWGHWoBMchoJo+Na2BkOEyRw==",
+  "dgSpecHash": "LH8wsigfiGYuuhtttlwTS0+I5RpGFIpJGx0tEPcyu+Q1yuNnviFpRTc2z94nprSRKwQIOYyvbFtUCJrM/5hdwQ==",
   "success": true,
   "projectFilePath": "/Users/rahsahay/Rahul/MyExperiments/MicroServices/dotnet/Ecommerce/API/API.csproj",
   "expectedPackageFiles": [
+    "/Users/rahsahay/.nuget/packages/automapper/12.0.1/automapper.12.0.1.nupkg.sha512",
+    "/Users/rahsahay/.nuget/packages/automapper.extensions.microsoft.dependencyinjection/12.0.1/automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",
     "/Users/rahsahay/.nuget/packages/humanizer.core/2.14.1/humanizer.core.2.14.1.nupkg.sha512",
     "/Users/rahsahay/.nuget/packages/microsoft.aspnetcore.openapi/7.0.11/microsoft.aspnetcore.openapi.7.0.11.nupkg.sha512",
+    "/Users/rahsahay/.nuget/packages/microsoft.csharp/4.7.0/microsoft.csharp.4.7.0.nupkg.sha512",
     "/Users/rahsahay/.nuget/packages/microsoft.data.sqlite.core/7.0.11/microsoft.data.sqlite.core.7.0.11.nupkg.sha512",
     "/Users/rahsahay/.nuget/packages/microsoft.entityframeworkcore/7.0.11/microsoft.entityframeworkcore.7.0.11.nupkg.sha512",
     "/Users/rahsahay/.nuget/packages/microsoft.entityframeworkcore.abstractions/7.0.11/microsoft.entityframeworkcore.abstractions.7.0.11.nupkg.sha512",

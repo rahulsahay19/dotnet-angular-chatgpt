@@ -71,3 +71,5 @@
 /Users/rahsahay/Rahul/MyExperiments/MicroServices/dotnet/Ecommerce/API/bin/Debug/net7.0/Microsoft.EntityFrameworkCore.Design.dll
 /Users/rahsahay/Rahul/MyExperiments/MicroServices/dotnet/Ecommerce/API/bin/Debug/net7.0/Mono.TextTemplating.dll
 /Users/rahsahay/Rahul/MyExperiments/MicroServices/dotnet/Ecommerce/API/bin/Debug/net7.0/System.CodeDom.dll
+/Users/rahsahay/Rahul/MyExperiments/MicroServices/dotnet/Ecommerce/API/bin/Debug/net7.0/AutoMapper.dll
+/Users/rahsahay/Rahul/MyExperiments/MicroServices/dotnet/Ecommerce/API/bin/Debug/net7.0/AutoMapper.Extensions.Microsoft.DependencyInjection.dll
