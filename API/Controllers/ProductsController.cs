@@ -29,10 +29,16 @@ namespace API.Controllers
 
         // GET: api/v1/Products
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<ProductDTO>>> GetProducts()
+        public async Task<ActionResult<IEnumerable<ProductDTO>>> GetProducts(
+            string sort = "NameAsc",
+            int? productTypeId = null,
+            int? productBrandId = null,
+            int skip = 0, 
+            int take = 10,
+            string search = "")
         {
             // Create a specification
-            var spec = new ProductWithTypesAndBrandSpecification();
+            var spec = new ProductWithTypesAndBrandSpecification(sort, productTypeId, productBrandId, skip, take, search);
 
             // Use the specification with the repository to get filtered and included results
             var products = await _productRepository.ListAsync(spec);
@@ -40,6 +46,7 @@ namespace API.Controllers
 
             return Ok(productDTOs);
         }
+
 
         // GET: api/v1/Products/5
         [HttpGet("{id}")]

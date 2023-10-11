@@ -1,4 +1,5 @@
 using Core.Entities;
+using Core.Enums;
 using Core.Interfaces;
 using Core.Specifications;
 using Microsoft.EntityFrameworkCore;
@@ -47,6 +48,23 @@ namespace Infrastructure.Data.Repositories
             foreach (var include in spec.Includes)
             {
                 query = query.Include(include);
+            }
+            
+            if (spec.IsPagingEnabled)
+            {
+                query = query.Skip(spec.Skip).Take(spec.Take);
+            }
+            
+            if (spec.OrderBy != null)
+            {
+                if (spec.OrderByDirection == OrderBy.Ascending)
+                {
+                    query = query.OrderBy(spec.OrderBy);
+                }
+                else if (spec.OrderByDirection == OrderBy.Descending)
+                {
+                    query = query.OrderByDescending(spec.OrderBy);
+                }
             }
 
             return query;
