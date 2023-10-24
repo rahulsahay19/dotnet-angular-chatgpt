@@ -1,0 +1,25 @@
+/* Add custom styling for the navbar */
+.navbar {
+    background-color: #fff; /* Background color */
+    border-bottom: 1px solid #ddd; /* Bottom border */
+  }
+  
+  /* Center the brand name */
+  .navbar-brand {
+    font-weight: bold;
+  }
+  
+  /* Style the navigation links */
+  .navbar-nav .nav-item {
+    margin-right: 10px; /* Space between nav items */
+  }
+  
+  .navbar-nav .nav-link {
+    color: #333; /* Text color */
+  }
+  
+  /* Style Font Awesome icons */
+  .navbar-nav .nav-link .fas {
+    margin-right: 5px; /* Space between icon and text */
+  }
+  
