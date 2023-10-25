@@ -1,0 +1,22 @@
+<div class="container">
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <h1>Welcome to {{ title }}</h1>
+        <p>Your one-stop destination for all your shopping needs.</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <h2>Featured Products</h2>
+        <ul>
+          <li *ngFor="let product of products">
+            <h3>{{ product.name }}</h3>
+            <p>{{ product.description }}</p>
+            <p>Price: ${{ product.price }}</p>
+            <img [src]="product.pictureUrl" alt="{{ product.name }}" />
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  
