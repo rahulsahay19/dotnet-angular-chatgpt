@@ -1,4 +1,6 @@
 using API.DTOs;
+using API.Helpers;
+using API.Specifications;
 using AutoMapper;
 using Core.Entities;
 using Core.Interfaces;
@@ -29,22 +31,34 @@ namespace API.Controllers
 
         // GET: api/v1/Products
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<ProductDTO>>> GetProducts(
-            string sort = "NameAsc",
-            int? productTypeId = null,
-            int? productBrandId = null,
-            int skip = 0, 
-            int take = 10,
-            string search = "")
+        public async Task<ActionResult<Pagination<ProductDTO>>> GetProducts([FromQuery] ProductParams productParams)
         {
-            // Create a specification
+            // Extract the parameters from the productParams object
+            var sort = productParams.Sort;
+            var productTypeId = productParams.ProductTypeId;
+            var productBrandId = productParams.ProductBrandId;
+            var skip = productParams.Skip;
+            var take = productParams.Take;
+            var search = productParams.Search;
+
+            // Create a specification for counting products
+            var countSpec = new ProductCountSpecification(productTypeId, productBrandId, search);
+
+            // Use the specification with the repository to get the total count of products
+            var totalCount = await _productRepository.CountAsync(countSpec);
+
+            // Create a specification for fetching paginated products
             var spec = new ProductWithTypesAndBrandSpecification(sort, productTypeId, productBrandId, skip, take, search);
 
             // Use the specification with the repository to get filtered and included results
             var products = await _productRepository.ListAsync(spec);
+
             var productDTOs = _mapper.Map<List<ProductDTO>>(products);
 
-            return Ok(productDTOs);
+            // Create a Pagination object to return both product data and total count
+            var pagination = new Pagination<ProductDTO>(skip, take, totalCount, productDTOs);
+
+            return Ok(pagination);
         }
 
 

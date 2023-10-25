@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http'; // Import HttpClient
+import { HttpClient } from '@angular/common/http';
+import { Product } from './models/Product';
+import { Pagination } from './models/Pagination';
 
 @Component({
   selector: 'app-root',
@@ -8,20 +10,22 @@ import { HttpClient } from '@angular/common/http'; // Import HttpClient
 })
 export class AppComponent implements OnInit {
   title = 'Sports Center';
-  products: any[] = []; // Define a variable to store fetched products
+  products: Product[] = [];
+  pagination: Pagination | undefined;
 
-  constructor(private http: HttpClient) {} // Inject HttpClient
+  constructor(private http: HttpClient) {}
 
   ngOnInit() {
-    // Make an HTTP GET request to your API URL
-    this.http.get<any[]>('http://localhost:5103/api/v1/Products?sort=NameAsc&skip=0&take=10').subscribe(
-      (data) => {
-        this.products = data; // Store the fetched data in the products variable
-        console.log(this.products);
-      },
-      (error) => {
-        console.error('Error fetching data:', error);
-      }
-    );
+    this.http
+      .get<Pagination>('http://localhost:5103/api/v1/Products?sort=NameAsc&skip=0&take=10')
+      .subscribe({
+        next: (data) => {
+          this.pagination = data;
+          this.products = data.data; // Extract the products from the pagination response
+        },
+        error: (error) => {
+          console.error('Error fetching data:', error);
+        },
+      });
   }
 }

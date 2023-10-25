@@ -7,4 +7,3 @@ export interface Product {
     productType: string;
     productBrand: string;
   }
-  
