@@ -18,4 +18,11 @@ export class StoreService {
     const url = `${this.apiUrl}?sort=${sort}&skip=${skip}&take=${take}`;
     return this.http.get<Pagination<Product>>(url);
   }
+   // Add a method to filter products based on brand and type
+   filterProducts(brand: string | null, type: string | null): Product[] {
+    // Implement the logic to filter products based on brand and type
+    // For example, you can use Array.filter() method here
+    // Return the filtered products as an array
+    return [];
+   }
 }

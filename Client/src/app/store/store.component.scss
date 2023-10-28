@@ -1,0 +1,32 @@
+.filters {
+    h3 {
+      font-weight: bold;
+    }
+  
+    .list-group-item {
+      cursor: pointer;
+      border: none;
+      border-left: 4px solid transparent;
+      border-radius: 0;
+      padding: 10px 20px;
+  
+      &:hover {
+        background-color: #f8f9fa;
+      }
+  
+      &.active {
+        border-color: #10278f; /* Change the highlight border color */
+        background-color: #2146cb; /* Change the highlight background color */
+      }
+  
+      &.active:hover {
+        background-color: #c4e2ce; /* Change the hover color for active items */
+      }
+  
+      .list-group-item-text {
+        /* Ensure text remains visible */
+        color: #333; /* Change the text color */
+      }
+    }
+  }
+  

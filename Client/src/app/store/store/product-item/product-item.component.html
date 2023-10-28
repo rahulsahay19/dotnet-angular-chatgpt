@@ -1,0 +1,16 @@
+<div class="card h-100 shadow-sm" *ngIf="product">
+    <div class="image position-relative;" style="cursor: pointer;">
+      <img [src]="'assets/images/products/' + extractImageName()" [alt]="product.name" class="img-fluid bg-light" />
+      <div class="card-body d-flex flex-column">
+        <h5 class="card-title">{{ product.name }}</h5>
+        <p class="card-text">Price: {{ product.price | currency:"INR" }}</p>
+  
+        <!-- Buttons -->
+        <div class="btn-group mt-auto">
+          <button class="btn btn-primary me-2"> View</button>
+          <button class="btn btn-success fa fa-shopping-cart"></button>
+        </div>
+      </div>
+    </div>
+  </div>
+  

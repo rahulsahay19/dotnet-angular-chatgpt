@@ -1,10 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { StoreComponent } from './store.component';
+import { ProductItemComponent } from './store/product-item/product-item.component';
 
 @NgModule({
   declarations: [
-    StoreComponent
+    StoreComponent,
+    ProductItemComponent
   ],
   imports: [
     CommonModule
