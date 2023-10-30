@@ -14,47 +14,51 @@
       </select>
       <h5 class="text-primary ml-3 mt-4 mb-3">Brands</h5>
       <ul class="list-group my-3">
-        <li class="list-group-item" *ngFor="let brand of brands; let i = index"
-          [class.active]="i === selectedBrandIndex" (click)="selectBrand(i)">
-          {{ brand }}
+        <li class="list-group-item" *ngFor="let brand of brands; 
+        let i = index"
+          [class.active]="brand.id === brandIdSelected"
+          [value]="brand.id"
+           (click)="selectBrand(brand.id)">
+          {{ brand.name }}
         </li>
       </ul>
       <h5 class="text-primary ml-3">Types</h5>
       <ul class="list-group my-3">
-        <li class="list-group-item" *ngFor="let type of types; let i = index" [class.active]="i === selectedTypeIndex"
-          (click)="selectType(i)">
-          {{ type }}
+        <li class="list-group-item" *ngFor="let type of types; 
+          let i = index" 
+          [class.active]="type.id === typeIdSelected"
+          [value]="type.id"
+          (click)="selectType(type.id)">
+          {{ type.name }}
         </li>
       </ul>
-    
     </section>
 
-   <!-- Products section -->
-<section class="col-9">
-  <div class="d-flex justify-content-between align-items-center pb-2">
-    <div class="d-flex justify-content-center align-items-center">
-      <header class="text-center"> <!-- Center-align the text -->
-        <span>
-          Showing <strong>10</strong> of <strong>35</strong> Results
-        </span>
-      </header>
-    </div>
+    <!-- Products section -->
+    <section class="col-9">
+      <div class="d-flex justify-content-between align-items-center pb-2">
+        <div class="d-flex justify-content-center align-items-center">
+          <header class="text-center"> <!-- Center-align the text -->
+            <span>
+              Showing <strong>{{ products.length }}</strong> of <strong>35</strong> Results
+            </span>
+          </header>
+        </div>
 
-    <!-- Search and Reset filters -->
-    <div class="d-flex mt-2">
-      <input class="form-control me-2" style="width: 200px" placeholder="Search" type="text" />
-      <button class="btn btn-outline-primary mx-2">Search</button>
-      <button class="btn btn-outline-success">Reset</button>
-    </div>
-  </div>
-  <div class="container">
-    <div class="row">
-      <div class="col-md-4 mb-4" *ngFor="let product of products">
-        <app-product-item [product]="product"></app-product-item>
+        <!-- Search and Reset filters -->
+        <div class="d-flex mt-2">
+          <input class="form-control me-2" style="width: 200px" placeholder="Search" type="text" />
+          <button class="btn btn-outline-primary mx-2">Search</button>
+          <button class="btn btn-outline-success">Reset</button>
+        </div>
       </div>
-    </div>
-  </div>
-</section>
-
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4 mb-4" *ngFor="let product of products">
+            <app-product-item [product]="product"></app-product-item>
+          </div>
+        </div>
+      </div>
+    </section>
   </div>
 </div>

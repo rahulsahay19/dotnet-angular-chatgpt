@@ -1,5 +1,3 @@
-using System;
-using System.Linq.Expressions;
 using Core.Entities;
 using Infrastructure.Data.Specifications;
 
@@ -33,21 +31,21 @@ public class ProductWithTypesAndBrandSpecification : BaseSpecification<Product>
             }
         }
 
-        // Apply filtering based on product type and product brand
-        if (productTypeId.HasValue)
+        // Apply filtering based on product type And product brand
+        if (productTypeId.HasValue || productBrandId.HasValue)
         {
-            ApplyCriteria(p => p.ProductTypeId == productTypeId.Value);
+            // Combine the conditions using And operator
+            ApplyCriteria(p =>
+                (!productTypeId.HasValue || p.ProductTypeId == productTypeId.Value) &&
+                (!productBrandId.HasValue || p.ProductBrandId == productBrandId.Value));
         }
 
-        if (productBrandId.HasValue)
-        {
-            ApplyCriteria(p => p.ProductBrandId == productBrandId.Value);
-        }
-        //Apply Paging
+        // Apply Paging
         if (skip >= 0 && take > 0)
         {
             ApplyPaging(skip, take);
         }
+
         // Apply search criteria
         if (!string.IsNullOrEmpty(search))
         {

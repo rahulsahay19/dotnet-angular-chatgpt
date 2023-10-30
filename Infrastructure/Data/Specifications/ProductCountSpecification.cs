@@ -5,7 +5,7 @@ namespace API.Specifications
 {
     public class ProductCountSpecification : BaseSpecification<Product>
     {
-        public ProductCountSpecification(int? productTypeId, int? productBrandId, string search)
+        public ProductCountSpecification(int? productBrandId, int? productTypeId, string search)
         {
             // Apply filtering based on product type and product brand
             if (productTypeId.HasValue)

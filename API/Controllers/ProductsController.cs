@@ -42,7 +42,7 @@ namespace API.Controllers
             var search = productParams.Search;
 
             // Create a specification for counting products
-            var countSpec = new ProductCountSpecification(productTypeId, productBrandId, search);
+            var countSpec = new ProductCountSpecification(productBrandId, productTypeId, search);
 
             // Use the specification with the repository to get the total count of products
             var totalCount = await _productRepository.CountAsync(countSpec);

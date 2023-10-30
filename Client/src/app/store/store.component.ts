@@ -1,8 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { StoreService } from './store.service';
 import { Product } from '../shared/models/Product';
-import { Observable } from 'rxjs';
-import { Pagination } from '../shared/models/Pagination';
+import { Brand } from '../shared/models/brand';
+import { Type } from '../shared/models/type';
 
 @Component({
   selector: 'app-store',
@@ -12,40 +12,62 @@ import { Pagination } from '../shared/models/Pagination';
 export class StoreComponent implements OnInit {
   @Input() title: string = '';
   products: Product[] = [];
-  brands: string[] = ['Brand 1', 'Brand 2', 'Brand 3', 'Brand 4', 'Brand 5']; // Dummy brands
-  types: string[] = ['Type 1', 'Type 2', 'Type 3', 'Type 4', 'Type 5']; // Dummy types
-  selectedBrandIndex: number | null = null; // Index of selected brand
-  selectedTypeIndex: number | null = null; // Index of selected product type
+  brands: Brand[] = [];
+  types: Type[] = [];
+  brandIdSelected = 0;
+  typeIdSelected = 0;
+  
 
   constructor(private storeService: StoreService) {}
 
   ngOnInit() {
-    // Fetch products using the service and assign the observable to pagination$
-    this.storeService.getProducts('NameAsc', 0, 10).subscribe({
-      next: (response) => {
-        this.products = response.data;
-      },
-      error: (error) => console.error(error),
-    });
+    // Fetch brands using the service and assign the observable to brands
+    this.getBrands();
+
+    // Fetch types using the service and assign the observable to types
+    this.getTypes();
+
+    // Fetch products using the service and assign the observable to products
+    this.fetchProducts();
   }
 
   // Filter products based on the selected brand
-  selectBrand(index: number) {
-    this.selectedBrandIndex = index;
+  selectBrand(brandId: number) {
+    this.brandIdSelected = brandId;
     this.filterProducts();
   }
 
   // Filter products based on the selected product type
-  selectType(index: number) {
-    this.selectedTypeIndex = index;
+  selectType(typeId: number) {
+    this.typeIdSelected = typeId;
     this.filterProducts();
+  }
+
+  getBrands(){
+    // Fetch brands using the service and assign the observable to brands
+    this.storeService.getBrands().subscribe({
+      next: response => this.brands = [{id:0, name:'All'}, ...response],
+      error: error => console.log(error)
+    });
+  }
+  getTypes(){
+    this.storeService.getTypes().subscribe({
+      next: response => this.types = [{id:0, name:'All'}, ...response],
+      error: error => console.log(error)
+    });
+  }
+  // Helper method to fetch products based on selected brand and type
+  fetchProducts() {
+    // Pass the brandIdSelected and typeIdSelected to the getProducts method
+    this.storeService
+      .getProducts('NameAsc', 0, 10, this.brandIdSelected, this.typeIdSelected)
+      .subscribe((products) => {
+        this.products = products.data;
+      });
   }
 
   // Helper method to filter products based on selected brand and type
   filterProducts() {
-    this.products = this.storeService.filterProducts(
-      this.selectedBrandIndex !== null ? this.brands[this.selectedBrandIndex] : null,
-      this.selectedTypeIndex !== null ? this.types[this.selectedTypeIndex] : null
-    );
+    this.fetchProducts();
   }
 }
