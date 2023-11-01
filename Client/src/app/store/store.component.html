@@ -8,10 +8,14 @@
       <!-- Filters section -->
       <!-- Sort filter -->
       <h5 class="text-primary ml-3 mt-4 mb-3">Sort</h5>
-      <select class="custom-select mb-4">
-        <option [value]="'Ascending'">Ascending</option>
-        <option [value]="'Descending'">Descending</option>
-      </select>
+<select class="custom-select mb-4" [(ngModel)]="selectedSort" (change)="onSortChange()">
+  <option value="NameAsc">Name Ascending</option>
+  <option value="NameDesc">Name Descending</option>
+  <option value="PriceAsc">Price Ascending</option> 
+  <option value="PriceDesc">Price Descending</option> 
+  
+</select>
+
       <h5 class="text-primary ml-3 mt-4 mb-3">Brands</h5>
       <ul class="list-group my-3">
         <li class="list-group-item" *ngFor="let brand of brands; 

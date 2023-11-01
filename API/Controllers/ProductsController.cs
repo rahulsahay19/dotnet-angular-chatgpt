@@ -31,7 +31,7 @@ namespace API.Controllers
 
         // GET: api/v1/Products
         [HttpGet]
-        public async Task<ActionResult<Pagination<ProductDTO>>> GetProducts([FromQuery] ProductParams productParams)
+        public async Task<ActionResult<Pagination<ProductDTO>>> GetProducts([FromQuery] ProductParams productParams, bool? allBrands)
         {
             // Extract the parameters from the productParams object
             var sort = productParams.Sort;
@@ -40,6 +40,13 @@ namespace API.Controllers
             var skip = productParams.Skip;
             var take = productParams.Take;
             var search = productParams.Search;
+            
+            // Check if the 'allBrands' parameter is set to true
+            if (allBrands == true)
+            {
+                // Set productBrandId to null to indicate no brand filtering
+                productBrandId = null;
+            }
 
             // Create a specification for counting products
             var countSpec = new ProductCountSpecification(productBrandId, productTypeId, search);
