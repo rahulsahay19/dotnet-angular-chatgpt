@@ -53,7 +53,7 @@ public class ProductWithTypesAndBrandSpecification : BaseSpecification<Product>
         }
     }
 
-    public ProductWithTypesAndBrandSpecification(int id)
+    public ProductWithTypesAndBrandSpecification(int id) : base(product=>product.Id==id)
     {
         AddInclude(p => p.ProductType);
         AddInclude(p => p.ProductBrand);

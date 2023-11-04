@@ -1,14 +1,18 @@
 <div class="container mt-3">
   <div class="row">
     <div class="col-md-12 text-center">
-      <h1>Welcome to {{ title }}</h1>
+      <h1>Welcome to Sports Center</h1>
       <p>Your one-stop destination for all your shopping needs.</p>
     </div>
     <section class="col-3">
       <!-- Filters section -->
       <!-- Sort filter -->
       <h5 class="text-primary ml-3 mt-4 mb-3">Sort</h5>
-      <select class="custom-select mb-4" [(ngModel)]="params.selectedSort" (change)="onSortChange()">
+      <select
+        class="custom-select mb-4"
+        [(ngModel)]="params.selectedSort"
+        (change)="onSortChange()"
+      >
         <option value="NameAsc">Name Ascending</option>
         <option value="NameDesc">Name Descending</option>
         <option value="PriceAsc">Price Ascending</option>
@@ -17,19 +21,25 @@
 
       <h5 class="text-primary ml-3 mt-4 mb-3">Brands</h5>
       <ul class="list-group my-3">
-        <li class="list-group-item" *ngFor="let brand of brands; let i = index"
+        <li
+          class="list-group-item"
+          *ngFor="let brand of brands; let i = index"
           [class.active]="brand.id === params.productBrandId"
           [value]="brand.id"
-          (click)="selectBrand(brand.id)">
+          (click)="selectBrand(brand.id)"
+        >
           {{ brand.name }}
         </li>
       </ul>
       <h5 class="text-primary ml-3">Types</h5>
       <ul class="list-group my-3">
-        <li class="list-group-item" *ngFor="let type of types; let i = index"
+        <li
+          class="list-group-item"
+          *ngFor="let type of types; let i = index"
           [class.active]="type.id === params.productTypeId"
           [value]="type.id"
-          (click)="selectType(type.id)">
+          (click)="selectType(type.id)"
+        >
           {{ type.name }}
         </li>
       </ul>
@@ -37,19 +47,22 @@
 
     <!-- Products section -->
     <section class="col-9">
-      <div class="d-flex justify-content-center" *ngIf="totalCount>0">
-        <app-pagination 
+      <div class="d-flex justify-content-center" *ngIf="totalCount > 0">
+        <app-pagination
           [totalCount]="totalCount"
           [pageNumber]="params.pageNumber"
           [pageSize]="params.pageSize"
           (pageChanged)="onPageChanged($event)"
         >
-
         </app-pagination>
       </div>
       <div class="d-flex justify-content-between align-items-center pb-2">
         <div class="d-flex justify-content-center align-items-center">
-          <app-pagination-header [totalCount] = "totalCount" [pageNumber] = "params.pageNumber" [pageSize] ="params.pageSize"></app-pagination-header>
+          <app-pagination-header
+            [totalCount]="totalCount"
+            [pageNumber]="params.pageNumber"
+            [pageSize]="params.pageSize"
+          ></app-pagination-header>
         </div>
 
         <!-- Search and Reset filters -->
@@ -61,8 +74,17 @@
             type="text"
             [(ngModel)]="params.search"
           />
-          <button class="btn btn-outline-primary mx-2" (click)="searchProducts()">Search</button> <!-- Call searchProducts on click -->
-          <button class="btn btn-outline-success" (click)="resetFilters()">Reset</button> <!-- Call resetFilters on click -->
+          <button
+            class="btn btn-outline-primary mx-2"
+            (click)="searchProducts()"
+          >
+            Search
+          </button>
+          <!-- Call searchProducts on click -->
+          <button class="btn btn-outline-success" (click)="resetFilters()">
+            Reset
+          </button>
+          <!-- Call resetFilters on click -->
         </div>
       </div>
       <div class="container">
@@ -75,15 +97,13 @@
     </section>
   </div>
 
-
-<div class="d-flex justify-content-center" *ngIf="totalCount>0">
-  <app-pagination 
-          [totalCount]="totalCount"
-          [pageNumber]="params.pageNumber"
-          [pageSize]="params.pageSize"
-          (pageChanged)="onPageChanged($event)"
-        >
-
-  </app-pagination>
-</div>
+  <div class="d-flex justify-content-center" *ngIf="totalCount > 0">
+    <app-pagination
+      [totalCount]="totalCount"
+      [pageNumber]="params.pageNumber"
+      [pageSize]="params.pageSize"
+      (pageChanged)="onPageChanged($event)"
+    >
+    </app-pagination>
+  </div>
 </div>

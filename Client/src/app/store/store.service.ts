@@ -12,7 +12,7 @@ import { StoreParams } from '../shared/models/storeParams';
   providedIn: 'root',
 })
 export class StoreService {
-  private apiUrl = 'http://localhost:5103/api/v1/Products';
+  private apiUrl = 'http://localhost:5103/api/v1/Products/';
 
   constructor(private http: HttpClient) {}
 
@@ -45,6 +45,9 @@ export class StoreService {
     return this.http.get<Pagination<Product>>(url, { params: httpParams });
   }
 
+  getProduct(id:number){
+    return this.http.get<Product>(this.apiUrl + id);
+  }
   // Add a method to filter products based on brand and type
   filterProducts(brand: string | null, type: string | null): Product[] {
     // Implement the logic to filter products based on brand and type
@@ -54,12 +57,12 @@ export class StoreService {
   }
 
   getBrands() {
-    const url = `${this.apiUrl}/brands`;
+    const url = `${this.apiUrl}brands`;
     return this.http.get<Brand[]>(url);
   }
 
   getTypes() {
-    const url = `${this.apiUrl}/types`;
+    const url = `${this.apiUrl}types`;
     return this.http.get<Type[]>(url);
   }
 }

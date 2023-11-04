@@ -23,3 +23,8 @@
     margin-right: 5px; /* Space between icon and text */
   }
   
+  /* Style the active link */
+.nav-item.active .nav-link {
+  color: #007bff; /* Active link text color */
+  font-weight: bold; /* Active link text weight */
+}
