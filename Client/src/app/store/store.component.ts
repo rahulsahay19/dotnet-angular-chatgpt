@@ -81,7 +81,7 @@ export class StoreComponent implements OnInit {
 
   onPageChanged(event: any) {
     // Handle pagination page change
-    this.params.pageNumber = event.page;
+    this.params.pageNumber = event;
     this.fetchProducts();
   }
 }
