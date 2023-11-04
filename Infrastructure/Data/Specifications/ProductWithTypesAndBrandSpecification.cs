@@ -32,12 +32,12 @@ public class ProductWithTypesAndBrandSpecification : BaseSpecification<Product>
         }
 
         // Apply filtering based on product type And product brand
-        if (productTypeId.HasValue || productBrandId.HasValue)
+        if (productBrandId.HasValue || productTypeId.HasValue)
         {
             // Combine the conditions using And operator
             ApplyCriteria(p =>
-                (!productTypeId.HasValue || p.ProductTypeId == productTypeId.Value) &&
-                (!productBrandId.HasValue || p.ProductBrandId == productBrandId.Value));
+                (!productBrandId.HasValue || p.ProductBrandId == productBrandId.Value) &&
+                (!productTypeId.HasValue || p.ProductTypeId == productTypeId.Value));
         }
 
         // Apply Paging

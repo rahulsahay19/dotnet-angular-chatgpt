@@ -36,5 +36,42 @@ namespace Infrastructure.Data.Specifications
             Take = take;
             IsPagingEnabled = true;
         }
+
+        // Constructor that accepts filter parameters
+        protected BaseSpecification(
+            Expression<Func<T, bool>> filter = null,
+            Expression<Func<T, object>> orderBy = null,
+            OrderBy orderByDirection = Core.Enums.OrderBy.Ascending,
+            List<Expression<Func<T, object>>> includes = null,
+            int skip = 0,
+            int take = -1)
+        {
+            if (filter != null)
+            {
+                Criteria = filter;
+            }
+
+            if (orderBy != null)
+            {
+                OrderBy = orderBy;
+                OrderByDirection = orderByDirection;
+            }
+
+            if (includes != null)
+            {
+                Includes = includes;
+            }
+
+            if (take > 0)
+            {
+                Take = take;
+                IsPagingEnabled = true;
+            }
+
+            if (skip >= 0)
+            {
+                Skip = skip;
+            }
+        }
     }
 }

@@ -3,6 +3,7 @@ import { StoreService } from './store.service';
 import { Product } from '../shared/models/Product';
 import { Brand } from '../shared/models/brand';
 import { Type } from '../shared/models/type';
+import { StoreParams } from '../shared/models/storeParams';
 
 @Component({
   selector: 'app-store',
@@ -14,10 +15,8 @@ export class StoreComponent implements OnInit {
   products: Product[] = [];
   brands: Brand[] = [];
   types: Type[] = [];
-  brandIdSelected = 0;
-  typeIdSelected = 0;
-  selectedSort = 'NameAsc'; // Default sorting
-
+  params: StoreParams = new StoreParams();
+  totalCount = 0;
   constructor(private storeService: StoreService) {}
 
   ngOnInit() {
@@ -27,17 +26,18 @@ export class StoreComponent implements OnInit {
   }
 
   selectBrand(brandId: number) {
-    this.brandIdSelected = brandId;
-    this.filterProducts();
+    this.params.productBrandId = brandId;
+    this.fetchProducts();
   }
 
   selectType(typeId: number) {
-    this.typeIdSelected = typeId;
-    this.filterProducts();
+    this.params.productTypeId = typeId;
+    this.fetchProducts();
   }
 
   onSortChange() {
-    this.filterProducts();
+    // Trigger a fetch of products when the sorting changes
+    this.fetchProducts();
   }
 
   getBrands() {
@@ -55,14 +55,33 @@ export class StoreComponent implements OnInit {
   }
 
   fetchProducts() {
-    this.storeService
-      .getProducts(this.selectedSort, 0, 10, this.brandIdSelected, this.typeIdSelected)
-      .subscribe((products) => {
-        this.products = products.data;
-      });
+    this.storeService.getProducts(this.params).subscribe((products) => {
+      this.products = products.data;
+      this.params.originalProducts = [...this.products]; // Store the original products
+      this.params.pageNumber = products.pageIndex;
+      this.params.pageSize = products.pageSize;
+      this.totalCount = products.totalItems;        
+    });
   }
 
-  filterProducts() {
+  searchProducts() {
+    // Filter the products based on the search input
+    this.products = this.params.originalProducts.filter((product) =>
+      product.name.toLowerCase().includes(this.params.search.toLowerCase())
+    );
+    this.totalCount = this.products.length;
+  }
+
+  resetFilters() {
+    // Reset the search input, reset pagination, and fetch the original list of products
+    this.params.search = '';
+    this.params.pageNumber = 1;
+    this.fetchProducts();
+  }
+
+  onPageChanged(event: any) {
+    // Handle pagination page change
+    this.params.pageNumber = event.page;
     this.fetchProducts();
   }
 }

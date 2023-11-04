@@ -5,6 +5,8 @@ import { Pagination } from '../shared/models/Pagination';
 import { Product } from '../shared/models/Product';
 import { Brand } from '../shared/models/brand';
 import { Type } from '../shared/models/type';
+import { StoreParams } from '../shared/models/storeParams';
+
 
 @Injectable({
   providedIn: 'root',
@@ -15,31 +17,32 @@ export class StoreService {
   constructor(private http: HttpClient) {}
 
   // Modify the method to return Pagination<Product[]>
-  getProducts(
-    sort: string,
-    skip: number,
-    take: number,
-    productBrandId: number,
-    productTypeId: number 
-  ): Observable<Pagination<Product>> {
+  getProducts(params: StoreParams): Observable<Pagination<Product>> {
     // Create HttpParams to build the query string
-    let params = new HttpParams()
-      .set('sort', sort)
-      .set('skip', skip.toString())
-      .set('take', take.toString());
+    let httpParams = new HttpParams()
+      .set('sort', params.selectedSort)
+      .set('skip', params.skip.toString())
+      .set('take', params.take.toString());
 
-    if (productBrandId !== 0) {
-      params = params.set('productBrandId', productBrandId.toString());
+    if (params.productBrandId !== 0) {
+      httpParams = httpParams.set('productBrandId', params.productBrandId.toString());
     }
 
-    if (productTypeId !== 0) {
-      params = params.set('productTypeId', productTypeId.toString());
+    if (params.productTypeId !== 0) {
+      httpParams = httpParams.set('productTypeId', params.productTypeId.toString());
     }
+
+    if (params.search) {
+      httpParams = httpParams.set('search', params.search); // Add the search parameter to the query
+    }
+    
+    httpParams = httpParams.set('pageIndex', params.pageNumber);
+    httpParams = httpParams.set('pageSize', params.pageSize);
 
     // Customize the URL with query parameters
     const url = `${this.apiUrl}`;
-    
-    return this.http.get<Pagination<Product>>(url, { params });
+
+    return this.http.get<Pagination<Product>>(url, { params: httpParams });
   }
 
   // Add a method to filter products based on brand and type

@@ -6,23 +6,13 @@ namespace API.Specifications
     public class ProductCountSpecification : BaseSpecification<Product>
     {
         public ProductCountSpecification(int? productBrandId, int? productTypeId, string search)
+            : base(
+                x =>
+                    (string.IsNullOrEmpty(search) || x.Name.ToLower().Contains(search)) &&
+                    (!productBrandId.HasValue || x.ProductBrandId == productBrandId.Value) &&
+                    (!productTypeId.HasValue || x.ProductTypeId == productTypeId.Value)
+            )
         {
-            // Apply filtering based on product type and product brand
-            if (productTypeId.HasValue)
-            {
-                ApplyCriteria(p => p.ProductTypeId == productTypeId.Value);
-            }
-
-            if (productBrandId.HasValue)
-            {
-                ApplyCriteria(p => p.ProductBrandId == productBrandId.Value);
-            }
-
-            // Apply search criteria
-            if (!string.IsNullOrEmpty(search))
-            {
-                ApplyCriteria(p => p.Name.ToLower().Contains(search.ToLower()));
-            }
         }
     }
 }

@@ -31,28 +31,27 @@ namespace API.Controllers
 
         // GET: api/v1/Products
         [HttpGet]
-        public async Task<ActionResult<Pagination<ProductDTO>>> GetProducts([FromQuery] ProductParams productParams, bool? allBrands)
+        public async Task<ActionResult<Pagination<ProductDTO>>> GetProducts([FromQuery] ProductParams productParams)
         {
             // Extract the parameters from the productParams object
             var sort = productParams.Sort;
             var productTypeId = productParams.ProductTypeId;
             var productBrandId = productParams.ProductBrandId;
-            var skip = productParams.Skip;
-            var take = productParams.Take;
+            var skip = (productParams.PageIndex - 1) * productParams.PageSize; // Calculate skip based on PageIndex and PageSize
+            var take = productParams.PageSize; // Use PageSize for take
             var search = productParams.Search;
-            
-            // Check if the 'allBrands' parameter is set to true
-            if (allBrands == true)
-            {
-                // Set productBrandId to null to indicate no brand filtering
-                productBrandId = null;
-            }
 
             // Create a specification for counting products
             var countSpec = new ProductCountSpecification(productBrandId, productTypeId, search);
 
             // Use the specification with the repository to get the total count of products
             var totalCount = await _productRepository.CountAsync(countSpec);
+            
+            // If totalCount is 0, return an empty result immediately
+            if (totalCount == 0)
+            {
+                return Ok(new Pagination<ProductDTO>(productParams.PageIndex, productParams.PageSize, 0, new List<ProductDTO>()));
+            }
 
             // Create a specification for fetching paginated products
             var spec = new ProductWithTypesAndBrandSpecification(sort, productTypeId, productBrandId, skip, take, search);
@@ -63,7 +62,7 @@ namespace API.Controllers
             var productDTOs = _mapper.Map<List<ProductDTO>>(products);
 
             // Create a Pagination object to return both product data and total count
-            var pagination = new Pagination<ProductDTO>(skip, take, totalCount, productDTOs);
+            var pagination = new Pagination<ProductDTO>(productParams.PageIndex, productParams.PageSize, totalCount, productDTOs);
 
             return Ok(pagination);
         }
