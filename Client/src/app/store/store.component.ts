@@ -4,6 +4,7 @@ import { Product } from '../shared/models/Product';
 import { Brand } from '../shared/models/brand';
 import { Type } from '../shared/models/type';
 import { StoreParams } from '../shared/models/storeParams';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-store',
@@ -17,7 +18,7 @@ export class StoreComponent implements OnInit {
   types: Type[] = [];
   params: StoreParams = new StoreParams();
   totalCount = 0;
-  constructor(private storeService: StoreService) {}
+  constructor(private storeService: StoreService, private toastr: ToastrService) {}
 
   ngOnInit() {
     this.getBrands();
@@ -61,7 +62,9 @@ export class StoreComponent implements OnInit {
       this.params.pageNumber = products.pageIndex;
       this.params.pageSize = products.pageSize;
       this.totalCount = products.totalItems;        
+      this.toastr.success('Products fetched'); 
     });
+    
   }
 
   searchProducts() {
