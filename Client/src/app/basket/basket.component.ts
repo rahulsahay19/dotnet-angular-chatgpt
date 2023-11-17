@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-basket',
   templateUrl: './basket.component.html',
-  styleUrl: './basket.component.scss'
+  styleUrls: ['./basket.component.scss']
 })
 export class BasketComponent {
 

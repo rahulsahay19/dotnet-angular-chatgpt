@@ -33,8 +33,6 @@
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "node_modules/ngx-bootstrap/datepicker/bs-datepicker.css", 
               "node_modules/font-awesome/css/font-awesome.min.css",
-              "node_modules/ngx-toastr/toastr.css",
-              "node_modules/ngx-spinner/animations/square-jelly-box.css",
               "src/styles.scss"
             ],
             "scripts": []
@@ -70,10 +68,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "Client:build:production"
+              "browserTarget": "Client:build:production"
             },
             "development": {
-              "buildTarget": "Client:build:development"
+              "browserTarget": "Client:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -81,7 +79,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "buildTarget": "Client:build"
+            "browserTarget": "Client:build"
           }
         },
         "test": {
