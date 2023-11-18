@@ -30,6 +30,7 @@
         <li class="nav-item" routerLinkActive="active">
           <a class="nav-link" routerLink="/basket">
             <i class="fa fa-shopping-cart"></i> Cart
+            <span class="cart-badge" *ngIf="(basketService.basketSubject$ | async) as basket">{{ basket.items.length }}</span>
           </a>
         </li>
         <li class="nav-item" routerLinkActive="active">

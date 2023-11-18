@@ -1,30 +1,60 @@
 /* Add custom styling for the navbar */
 .navbar {
-    background-color: #fff; /* Background color */
-    border-bottom: 1px solid #ddd; /* Bottom border */
-  }
-  
-  /* Center the brand name */
-  .navbar-brand {
-    font-weight: bold;
-  }
-  
-  /* Style the navigation links */
-  .navbar-nav .nav-item {
-    margin-right: 10px; /* Space between nav items */
-  }
-  
-  .navbar-nav .nav-link {
-    color: #333; /* Text color */
-  }
-  
-  /* Style Font Awesome icons */
-  .navbar-nav .nav-link .fas {
-    margin-right: 5px; /* Space between icon and text */
-  }
-  
-  /* Style the active link */
+  background-color: #fff; /* Background color */
+  border-bottom: 1px solid #ddd; /* Bottom border */
+}
+
+/* Center the brand name */
+.navbar-brand {
+  font-weight: bold;
+}
+
+/* Style the navigation links */
+.navbar-nav .nav-item {
+  margin-right: 10px; /* Space between nav items */
+}
+
+.navbar-nav .nav-link {
+  color: #333; /* Text color */
+}
+
+/* Style Font Awesome icons */
+.navbar-nav .nav-link .fas {
+  margin-right: 5px; /* Space between icon and text */
+}
+
+/* Style the active link */
 .nav-item.active .nav-link {
   color: #007bff; /* Active link text color */
   font-weight: bold; /* Active link text weight */
+}
+
+/* Style for the cart count badge */
+.cart-badge {
+  position: absolute;
+  min-height: 25px;
+  min-width: 25px;
+  text-align: center;
+    top: -12px;
+    right: 32px;
+  
+  background-color: red;
+  color: white;
+  border-radius: 50%;
+  padding: 4px 8px;
+  font-size: 12px;
+  z-index: 1; /* Ensure the badge is displayed above other content */
+}
+
+.cart-badge {
+  position: absolute;
+  min-height: 25px;
+  min-width: 25px;
+  border-radius: 50%;
+  font-size: 1em;
+  background: rgb(91, 42, 42);
+  color: white;
+  text-align: center;
+  top: 20px;
+  right: 90px;
 }

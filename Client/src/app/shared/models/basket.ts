@@ -1,4 +1,5 @@
-import { uuid } from "uuidv4"
+import { createId } from "@paralleldrive/cuid2"
+
 
 export interface Basket {
     id: string
@@ -16,6 +17,6 @@ export interface Basket {
   }
   
   export class Basket implements Basket{
-    id = uuid();
+    id = createId()
     items: BasketItem[] = [];
   }

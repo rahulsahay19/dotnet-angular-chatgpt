@@ -18,6 +18,7 @@
     "@angular/platform-browser": "^16.2.0",
     "@angular/platform-browser-dynamic": "^16.2.0",
     "@angular/router": "^16.2.0",
+    "@paralleldrive/cuid2": "^2.2.2",
     "bootstrap": "^5.2.3",
     "font-awesome": "^4.7.0",
     "ngx-bootstrap": "^11.0.2",
@@ -25,7 +26,6 @@
     "ngx-toastr": "^17.0.2",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
-    "uuidv4": "^6.2.13",
     "xng-breadcrumb": "^10.0.1",
     "zone.js": "~0.13.0"
   },

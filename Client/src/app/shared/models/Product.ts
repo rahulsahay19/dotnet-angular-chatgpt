@@ -4,12 +4,6 @@ export interface Product {
   description: string;
   price: number;
   pictureUrl: string;
-  productType: {
-    id: number;
-    name: string;
-  };
-  productBrand: {
-    id: number;
-    name: string;
-  };
+  productType: string;
+  productBrand: string;
 }

@@ -8,7 +8,7 @@
         <!-- Buttons -->
         <div class="btn-group mt-auto">
           <button class="btn btn-primary me-2" routerLink="/store/{{product.id}}"> View</button>
-          <button class="btn btn-success fa fa-shopping-cart"></button>
+          <button (click)="addItemToBasket()" class="btn btn-success fa fa-shopping-cart"></button>
         </div>
       </div>
     </div>
