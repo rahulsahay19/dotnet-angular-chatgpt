@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { BasketService } from './basket.service';
-import { BasketItem } from '../shared/models/basket';
+import { Basket, BasketItem } from '../shared/models/basket';
 
 
 @Component({
@@ -8,8 +8,15 @@ import { BasketItem } from '../shared/models/basket';
   templateUrl: './basket.component.html',
   styleUrls: ['./basket.component.scss']
 })
-export class BasketComponent {
+export class BasketComponent implements OnInit {
+  basket: Basket | null = new Basket();
   constructor(public basketService: BasketService) {}
+ 
+  ngOnInit(): void {
+    this.basketService.basketSubject$.subscribe((basket) => {
+      this.basket = basket;
+    });
+  }
 
 // Method to extract image name from pictureUrl
   extractImageName(item: BasketItem): string | null {
@@ -20,5 +27,16 @@ export class BasketComponent {
       }
     }
     return null; // Return null if pictureUrl is not valid
+  }
+  incrementQuantity(itemId: number) {
+    this.basketService.incrementItemQuantity(itemId);
+  }
+
+  decrementQuantity(itemId: number) {
+    this.basketService.decrementItemQuantity(itemId);
+  }
+
+  removeItem(itemId: number) {
+    this.basketService.removeItem(itemId);
   }
 }
