@@ -1,1 +1,49 @@
-<p>basket works!</p>
+<div class="container mt-4" *ngIf="(basketService.basketSubject$ | async) as basket">
+    <h2>Your Cart</h2>
+    <div *ngIf="basket.items.length === 0" class="alert alert-info">
+      Your cart is empty.
+    </div>
+    <div *ngIf="basket.items.length > 0">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Image</th>
+            <th scope="col">Product</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Price</th>
+            <th scope="col">Total</th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of basket.items">
+            <td><img [src]="'assets/images/products/' + extractImageName(item)" [alt]="item.productName" width="50"></td>
+            <td>{{ item.productName }}</td>
+            <td>
+              <button class="btn btn-sm btn-outline-secondary">
+                <i class="fa fa-minus"></i>
+              </button>
+              {{ item.quantity }}
+              <button class="btn btn-sm btn-outline-secondary">
+                <i class="fa fa-plus"></i>
+              </button>
+            </td>
+            <td>{{ item.price | currency:"INR" }}</td>
+            <td>{{ (item.quantity * item.price) | currency:"INR" }}</td>
+            <td>
+              <button class="btn btn-danger btn-sm">
+                <i class="fa fa-trash"></i>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="text-end">
+        <strong>Total: </strong>
+      </div>
+      <button class="btn btn-success mt-3">
+        <i class="fa fa-shopping-cart"></i> Checkout
+      </button>
+    </div>
+  </div>
+  
