@@ -69,13 +69,14 @@ namespace API.Controllers
 
         // GET: api/v1/Products/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Product>> GetProduct(int id)
+        public async Task<ActionResult<ProductDTO>> GetProduct(int id)
         {
             // Create a specification
             var spec = new ProductWithTypesAndBrandSpecification(id);
 
             // Use the specification with the repository to get filtered and included results
-            var product = await _productRepository.GetByIdAsync(spec);
+            var retrievedProduct = await _productRepository.GetByIdAsync(spec);
+            var product = _mapper.Map<ProductDTO>(retrievedProduct);
             return Ok(product);
         }
 
