@@ -75,3 +75,12 @@
 /Users/rahsahay/Rahul/MyExperiments/MicroServices/dotnet/Ecommerce/API/bin/Debug/net7.0/AutoMapper.Extensions.Microsoft.DependencyInjection.dll
 /Users/rahsahay/Rahul/MyExperiments/MicroServices/dotnet/Ecommerce/API/bin/Debug/net7.0/Pipelines.Sockets.Unofficial.dll
 /Users/rahsahay/Rahul/MyExperiments/MicroServices/dotnet/Ecommerce/API/bin/Debug/net7.0/StackExchange.Redis.dll
+/Users/rahsahay/Rahul/MyExperiments/MicroServices/dotnet/Ecommerce/API/bin/Debug/net7.0/Microsoft.AspNetCore.Authentication.JwtBearer.dll
+/Users/rahsahay/Rahul/MyExperiments/MicroServices/dotnet/Ecommerce/API/bin/Debug/net7.0/Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+/Users/rahsahay/Rahul/MyExperiments/MicroServices/dotnet/Ecommerce/API/bin/Debug/net7.0/Microsoft.IdentityModel.Abstractions.dll
+/Users/rahsahay/Rahul/MyExperiments/MicroServices/dotnet/Ecommerce/API/bin/Debug/net7.0/Microsoft.IdentityModel.JsonWebTokens.dll
+/Users/rahsahay/Rahul/MyExperiments/MicroServices/dotnet/Ecommerce/API/bin/Debug/net7.0/Microsoft.IdentityModel.Logging.dll
+/Users/rahsahay/Rahul/MyExperiments/MicroServices/dotnet/Ecommerce/API/bin/Debug/net7.0/Microsoft.IdentityModel.Protocols.dll
+/Users/rahsahay/Rahul/MyExperiments/MicroServices/dotnet/Ecommerce/API/bin/Debug/net7.0/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+/Users/rahsahay/Rahul/MyExperiments/MicroServices/dotnet/Ecommerce/API/bin/Debug/net7.0/Microsoft.IdentityModel.Tokens.dll
+/Users/rahsahay/Rahul/MyExperiments/MicroServices/dotnet/Ecommerce/API/bin/Debug/net7.0/System.IdentityModel.Tokens.Jwt.dll

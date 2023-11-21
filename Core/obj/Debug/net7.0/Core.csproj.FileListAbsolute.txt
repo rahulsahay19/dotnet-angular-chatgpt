@@ -9,3 +9,4 @@
 /Users/rahsahay/Rahul/MyExperiments/MicroServices/dotnet/Ecommerce/Core/obj/Debug/net7.0/refint/Core.dll
 /Users/rahsahay/Rahul/MyExperiments/MicroServices/dotnet/Ecommerce/Core/obj/Debug/net7.0/Core.pdb
 /Users/rahsahay/Rahul/MyExperiments/MicroServices/dotnet/Ecommerce/Core/obj/Debug/net7.0/ref/Core.dll
+/Users/rahsahay/Rahul/MyExperiments/MicroServices/dotnet/Ecommerce/Core/obj/Debug/net7.0/Core.csproj.AssemblyReference.cache

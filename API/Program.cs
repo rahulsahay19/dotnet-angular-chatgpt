@@ -1,6 +1,7 @@
 using Core.Interfaces;
 using Infrastructure.Data;
 using Infrastructure.Data.Repositories;
+using Infrastructure.Identity;
 using Microsoft.EntityFrameworkCore;
 using StackExchange.Redis;
 
@@ -15,6 +16,10 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<EcommerceContext>(opt =>
 {
     opt.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection"));
+});
+builder.Services.AddDbContext<ApplicationIdentityDbContext>(opt =>
+{
+    opt.UseSqlite(builder.Configuration.GetConnectionString("IdentityConnection"));
 });
 builder.Services.AddSingleton<IConnectionMultiplexer>(c =>
 {
