@@ -1,7 +1,9 @@
+using Core.Entities.Identity;
 using Core.Interfaces;
 using Infrastructure.Data;
 using Infrastructure.Data.Repositories;
 using Infrastructure.Identity;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using StackExchange.Redis;
 
@@ -31,6 +33,10 @@ builder.Services.AddScoped<IBasketRepository, RedisBasketRepository>();
 builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
 
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
+    .AddEntityFrameworkStores<ApplicationIdentityDbContext>()
+    .AddDefaultTokenProviders();
+
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowAngularApp", builder =>
@@ -51,7 +57,7 @@ if (app.Environment.IsDevelopment())
 
 app.UseCors("AllowAngularApp");
 app.UseHttpsRedirection();
-
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
@@ -69,6 +75,8 @@ try
     // Create an instance of EcommerceContextSeed
     var ecommerceContextSeed = new EcommerceContextSeed(logger);
     await ecommerceContextSeed.SeedDataAsync(context);
+    // Seed data for ApplicationIdentityDbContext
+    await ApplicationIdentityDbContextSeed.SeedAsync(services);
 }
 catch (Exception ex)
 {
