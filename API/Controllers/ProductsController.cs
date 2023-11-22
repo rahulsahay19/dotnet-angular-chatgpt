@@ -4,6 +4,7 @@ using API.Specifications;
 using AutoMapper;
 using Core.Entities;
 using Core.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace API.Controllers
@@ -30,6 +31,7 @@ namespace API.Controllers
 
         // GET: api/v1/Products
         [HttpGet]
+        [Authorize]
         public async Task<ActionResult<Pagination<ProductDTO>>> GetProducts([FromQuery] ProductParams productParams)
         {
             // Extract the parameters from the productParams object
