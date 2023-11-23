@@ -10,7 +10,7 @@ using System.Security.Claims;
 
 namespace API.Controllers
 {
-    [Route("api/account")]
+    [Route("api/[controller]")]
     [ApiController]
     public class AccountController : ControllerBase
     {
