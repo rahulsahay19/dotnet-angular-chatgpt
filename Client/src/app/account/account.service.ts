@@ -48,11 +48,15 @@ export class AccountService {
   login(loginModel: any): Observable<User> {
     return this.http.post<User>(`${this.apiUrl}/login`, loginModel).pipe(
       // Store token in localStorage and notify via userSource
-      map((user) => {
-        if (user?.token) {
-          localStorage.setItem('token', user.token);
-          this.userSource.next(user);
-        }
+      map((response) => {
+        const user: User = {
+          displayName: response.displayName, 
+          email: response.email, 
+          token: response.token,
+        };
+        localStorage.setItem('token', response.token);
+        this.userSource.next(user);
+       
         return user;
       })
     );
@@ -81,6 +85,6 @@ export class AccountService {
   logout() {
     localStorage.removeItem('token');
     this.userSource.next(null);
-    this.router.navigate(['/']); // You can navigate to any desired route after logout
+    this.router.navigate(['/']); 
   }
 }

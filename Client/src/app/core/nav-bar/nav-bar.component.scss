@@ -1,11 +1,17 @@
-/* Add custom styling for the navbar */
 .navbar {
   background-color: #fff; /* Background color */
   border-bottom: 1px solid #ddd; /* Bottom border */
+  /* Ensure the navbar is fixed at the top */
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
 }
 
-/* Center the brand name */
+/* Center the brand name and ensure proper sizing */
 .navbar-brand {
+  display: flex;
+  align-items: center;
   font-weight: bold;
 }
 
@@ -15,11 +21,18 @@
 }
 
 .navbar-nav .nav-link {
+  display: flex;
+  align-items: center;
   color: #333; /* Text color */
+  cursor: pointer; /* Ensures hand pointer on hover */
+}
+
+a {
+  cursor: pointer;
 }
 
 /* Style Font Awesome icons */
-.navbar-nav .nav-link .fas {
+.fa {
   margin-right: 5px; /* Space between icon and text */
 }
 
@@ -31,30 +44,35 @@
 
 /* Style for the cart count badge */
 .cart-badge {
-  position: absolute;
-  min-height: 25px;
-  min-width: 25px;
-  text-align: center;
-    top: -12px;
-    right: 32px;
-  
   background-color: red;
   color: white;
   border-radius: 50%;
   padding: 4px 8px;
   font-size: 12px;
+  position: relative;
+  top: -8px;
+  right: -8px;
+  margin-left: 5px;
   z-index: 1; /* Ensure the badge is displayed above other content */
 }
 
-.cart-badge {
-  position: absolute;
-  min-height: 25px;
-  min-width: 25px;
-  border-radius: 50%;
-  font-size: 1em;
-  background: rgb(91, 42, 42);
-  color: white;
-  text-align: center;
-  top: 20px;
-  right: 90px;
+/* Correct positioning for mobile view and collapsing */
+.navbar-toggler {
+  border: none;
+}
+
+.navbar-collapse {
+  justify-content: flex-end;
+}
+
+@media (max-width: 991px) {
+  .navbar-nav .nav-link {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+}
+
+/* Ensure the navbar doesn't overlap content */
+body {
+  padding-top: 56px; /* Adjust to the height of your navbar */
 }

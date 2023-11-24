@@ -55,7 +55,7 @@ namespace API.Controllers
         }
 
         [HttpPost("login")]
-        public async Task<IActionResult> Login(LoginDto model)
+        public async Task<ActionResult<UserDto>> Login(LoginDto model)
         {
             if (!ModelState.IsValid)
             {
@@ -80,11 +80,12 @@ namespace API.Controllers
                 // Generate the JWT token
                 var token = _tokenService.GenerateToken(tokenClaims);
 
-                return Ok(new
+                return new UserDto
                 {
-                    Message = "Login successful",
-                    Token = token 
-                });
+                    Email = user.Email,
+                    Token = token,
+                    DisplayName = user.DisplayName
+                };
             }
 
             if (result.RequiresTwoFactor)

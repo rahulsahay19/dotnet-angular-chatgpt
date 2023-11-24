@@ -1,39 +1,31 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <!-- Replace the text with an image logo -->
-    <a class="navbar-brand" href="#">
-      <img src="/assets/images/logo.png" alt="Ecommerce Shop Logo" width="90">
-      Sports Center
-    </a>
-    <button
-      class="navbar-toggler"
-      type="button"
-      data-toggle="collapse"
-      data-target="#navbarNav"
-      aria-controls="navbarNav"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
-    >
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ms-auto">
-        <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
-          <a class="nav-link" routerLink="/">
-            <i class="fa fa-home"></i> Home
-          </a>
-        </li>
-        <li class="nav-item" routerLinkActive="active">
-          <a class="nav-link" routerLink="/store">
-            <i class="fa fa-th-list"></i> Store
-          </a>
-        </li>
-        <li class="nav-item" routerLinkActive="active">
-          <a class="nav-link" routerLink="/basket">
-            <i class="fa fa-shopping-cart"></i> Cart
-            <span class="cart-badge" *ngIf="(basketService.basketSubject$ | async) as basket">{{ basket.items.length }}</span>
-          </a>
-        </li>
-        <ng-container *ngIf="(accountService.userSource$ | async) ===null">
+  <!-- Replace the text with an image logo -->
+  <a class="navbar-brand" href="#">
+    <img src="/assets/images/logo.png" alt="Ecommerce Shop Logo" width="90">
+    Sports Center
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav ms-auto">
+      <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+        <a class="nav-link" routerLink="/">
+          <i class="fa fa-home"></i> Home
+        </a>
+      </li>
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" routerLink="/store">
+          <i class="fa fa-th-list"></i> Store
+        </a>
+      </li>
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" routerLink="/basket">
+          <i class="fa fa-shopping-cart"></i> Cart
+          <span class="cart-badge" *ngIf="(basketService.basketSubject$ | async) as basket">{{ basket.items.length }}</span>
+        </a>
+      </li>
+      <ng-container *ngIf="(currentUser$ | async) === null">
         <li class="nav-item" routerLinkActive="active">
           <a routerLink="/account/login" class="nav-link">
             <i class="fa fa-sign-in-alt"></i> Login
@@ -41,14 +33,23 @@
         </li>
         <li class="nav-item" routerLinkActive="active">
           <a routerLink="/account/register" class="nav-link">
-            <i class="fa fa-sign-up-alt"></i> Sign Up
+            <i class="fa fa-user-plus"></i> Sign Up
           </a>
         </li>
       </ng-container>
-      <ng-container *ngIf="(accountService.userSource$ | async) as user">
-        <p>Welcome {{user.displayName}}</p>
+      <ng-container *ngIf="(currentUser$ | async) as user">
+        <li class="nav-item" routerLinkActive="active">
+          <a routerLink="/account/profile" class="nav-link">
+            Welcome, {{ user.displayName }}
+          </a>
+        </li>
+        <!-- Add a logout button or link -->
+        <li class="nav-item" routerLinkActive="active">
+          <a (click)="logout()" class="nav-link">
+            <i class="fa fa-sign-out-alt"></i> Logout
+          </a>
+        </li>
       </ng-container>
-      </ul>
-    </div>
-  </nav>
-  
+    </ul>
+  </div>
+</nav>
