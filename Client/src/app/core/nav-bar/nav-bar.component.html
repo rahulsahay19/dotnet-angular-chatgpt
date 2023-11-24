@@ -33,6 +33,7 @@
             <span class="cart-badge" *ngIf="(basketService.basketSubject$ | async) as basket">{{ basket.items.length }}</span>
           </a>
         </li>
+        <ng-container *ngIf="(accountService.userSource$ | async) ===null">
         <li class="nav-item" routerLinkActive="active">
           <a routerLink="/account/login" class="nav-link">
             <i class="fa fa-sign-in-alt"></i> Login
@@ -43,6 +44,10 @@
             <i class="fa fa-sign-up-alt"></i> Sign Up
           </a>
         </li>
+      </ng-container>
+      <ng-container *ngIf="(accountService.userSource$ | async) as user">
+        <p>Welcome {{user.displayName}}</p>
+      </ng-container>
       </ul>
     </div>
   </nav>

@@ -13,11 +13,11 @@ const routes: Routes = [
   {path:'not-found', component:NotFoundComponent, data:{breadcrumb:'Not Found'}},
   {path:'server-error', component:ServerErrorComponent, data:{breadcrumb:'Server Error'}},
   {path:'connection-refused', component:ConnectionRefusedComponent, data:{breadcrumb:'Connection Refused'}},
-  {path:'**', component: NotFoundComponent, pathMatch:'full'}
+  {path:'**', redirectTo: '', pathMatch: 'full'}
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, { useHash: true })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

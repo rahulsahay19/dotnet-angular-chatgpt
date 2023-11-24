@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http'; // Import HttpClientModule
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http'; 
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -10,6 +10,7 @@ import { HomeModule } from './home/home.module';
 import { ErrorInterceptor } from './core/interceptor/error.interceptor';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { LoadingInterceptor } from './core/interceptor/loading.interceptor';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 @NgModule({
   declarations: [AppComponent],
@@ -33,6 +34,10 @@ import { LoadingInterceptor } from './core/interceptor/loading.interceptor';
       provide: HTTP_INTERCEPTORS,
       useClass: LoadingInterceptor,
       multi: true
+    },
+    {
+      provide: LocationStrategy,
+      useClass: HashLocationStrategy
     }
   ],
   bootstrap: [AppComponent],

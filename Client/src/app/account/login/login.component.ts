@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AccountService } from '../account.service';
+import { Router } from '@angular/router'; 
 import { LoadingService } from 'src/app/core/services/loading.service';
-
 
 @Component({
   selector: 'app-login',
@@ -11,11 +11,13 @@ import { LoadingService } from 'src/app/core/services/loading.service';
 })
 export class LoginComponent {
   loginForm: FormGroup;
+  loading: boolean = false;
 
   constructor(
     private formBuilder: FormBuilder,
     private accountService: AccountService,
-    private loadingService: LoadingService 
+    private loadingService: LoadingService,
+    private router: Router // Inject Router
   ) {
     this.loginForm = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
@@ -24,22 +26,20 @@ export class LoginComponent {
     });
   }
 
-  onSubmit(): void {
+  onSubmit() {
     if (this.loginForm.valid) {
-      const { email, password, rememberMe } = this.loginForm.value;
-
-      // Call the loading service to show the spinner
       this.loadingService.loading();
 
-      this.accountService.login({ email, password, rememberMe }).subscribe(
-        (user) => {
-          // Handle successful login, e.g., navigate to a dashboard or home page
-          // Call the loading service to hide the spinner
+      this.accountService.login(this.loginForm.value).subscribe(
+        () => {
+          // Handle successful login
           this.loadingService.idle();
+          
+          // Redirect to the store page
+          this.router.navigate(['/store']);
         },
-        (error) => {
-          // Handle login error, e.g., display an error message
-          // Call the loading service to hide the spinner
+        () => {
+          // Handle login error
           this.loadingService.idle();
         }
       );

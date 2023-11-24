@@ -96,6 +96,43 @@ namespace API.Controllers
 
             return BadRequest(new { Message = "Login failed" });
         }
+        
+        [Authorize]
+        [HttpGet]
+        public async Task<ActionResult<UserDto>> LoadUser()
+        {
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            var user = await _userManager.FindByIdAsync(userId);
+
+            if (user == null)
+            {
+                return NotFound(new { Message = "User not found" });
+            }
+
+            // Generate a JWT token with user claims
+            var tokenClaims = new List<Claim>
+            {
+                new Claim(ClaimTypes.NameIdentifier, user.Id),
+                new Claim(ClaimTypes.Name, user.DisplayName),
+                new Claim(ClaimTypes.Email, user.Email),
+                // Add more claims as needed
+            };
+
+            // Generate the JWT token
+            var token = _tokenService.GenerateToken(tokenClaims);
+
+            var userDto = new UserDto
+            {
+                Email = user.Email,
+                DisplayName = user.DisplayName,
+                Token = token // Set the Token property with the generated token
+            };
+
+            return Ok(userDto);
+        }
+
+
+
 
         [HttpPost("logout")]
         public async Task<IActionResult> Logout()
