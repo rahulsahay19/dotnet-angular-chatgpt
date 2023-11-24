@@ -10,17 +10,26 @@
             <div class="mb-3">
               <label for="email" class="form-label">Email</label>
               <input type="email" class="form-control" id="email" formControlName="email" placeholder="Enter your email">
+              <div *ngIf="loginForm.get('email')?.hasError('required') && loginForm.get('email')?.touched" class="text-danger">
+                Email is required.
+              </div>
+              <div *ngIf="loginForm.get('email')?.hasError('email') && loginForm.get('email')?.touched" class="text-danger">
+                Invalid email address.
+              </div>
             </div>
             <div class="mb-3">
               <label for="password" class="form-label">Password</label>
               <input type="password" class="form-control" id="password" formControlName="password" placeholder="Enter your password">
+              <div *ngIf="loginForm.get('password')?.hasError('required') && loginForm.get('password')?.touched" class="text-danger">
+                Password is required.
+              </div>
             </div>
             <div class="mb-3 form-check">
               <input type="checkbox" class="form-check-input" id="rememberMe" formControlName="rememberMe">
               <label class="form-check-label" for="rememberMe">Remember Me</label>
             </div>
             <div class="d-grid gap-2">
-              <button type="submit" class="btn btn-primary" [disabled]="loading">Login</button>
+              <button type="submit" class="btn btn-primary" [disabled]="!loginForm.valid || loading">Login</button>
             </div>
           </form>
         </div>

@@ -1,1 +1,59 @@
-<p>register works!</p>
+<div class="container mt-5">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-header">
+            <h2 class="text-center">Register</h2>
+          </div>
+          <div class="card-body">
+            <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+                <div class="mb-3">
+                    <label for="displayName" class="form-label">Display Name</label>
+                    <input type="text" class="form-control" id="displayName" formControlName="displayName" placeholder="Enter your display name">
+                    <div *ngIf="registerForm.get('displayName')?.hasError('required') && registerForm.get('displayName')?.touched" class="text-danger">
+                      Display Name is required.
+                    </div>
+                  </div>
+              <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" id="email" formControlName="email" placeholder="Enter your email">
+                <div *ngIf="registerForm.get('email')?.hasError('required') && registerForm.get('email')?.touched" class="text-danger">
+                  Email is required.
+                </div>
+                <div *ngIf="registerForm.get('email')?.hasError('email') && registerForm.get('email')?.touched" class="text-danger">
+                  Invalid email address.
+                </div>
+              </div>
+              <div class="mb-3">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" class="form-control" id="password" formControlName="password" placeholder="Enter your password">
+                <div *ngIf="registerForm.get('password')?.hasError('required') && registerForm.get('password')?.touched" class="text-danger">
+                  Password is required.
+                </div>
+                <div *ngIf="registerForm.get('password')?.hasError('minlength') && registerForm.get('password')?.touched" class="text-danger">
+                  Password must be at least 6 characters long.
+                </div>
+              </div>
+              <div class="mb-3">
+                <label for="confirmPassword" class="form-label">Confirm Password</label>
+                <input type="password" class="form-control" id="confirmPassword" formControlName="confirmPassword" placeholder="Confirm your password">
+                <div *ngIf="registerForm.get('confirmPassword')?.hasError('required') && registerForm.get('confirmPassword')?.touched" class="text-danger">
+                  Confirm Password is required.
+                </div>
+                <div *ngIf="registerForm.get('confirmPassword')?.hasError('mustMatch')" class="text-danger">
+                  Passwords do not match.
+                </div>
+              </div>
+              
+              
+              
+              <div class="d-grid gap-2">
+                <button type="submit" class="btn btn-primary" [disabled]="!registerForm.valid || loading">Register</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

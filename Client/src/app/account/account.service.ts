@@ -3,7 +3,7 @@ import { BehaviorSubject, Observable, throwError } from 'rxjs';
 import { User } from '../shared/models/user';
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
-import { catchError, map } from 'rxjs/operators';
+import { catchError, map, switchMap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root',
@@ -15,7 +15,7 @@ export class AccountService {
 
   constructor(private http: HttpClient, private router: Router) {}
 
-  loadUser(token: string){
+  loadUser(token: string) {
     let headers = new HttpHeaders();
     headers = headers.set('Authorization', `Bearer ${token}`);
     return this.http.get<User>(`${this.apiUrl}`, { headers }).pipe(
@@ -29,20 +29,12 @@ export class AccountService {
       catchError((error) => {
         console.error('Error loading user:', error);
   
-        if (error instanceof HttpErrorResponse) {
-          if (error.status === 404) {
-            console.error('User not found:', error);
-            // Handle the 404 error here, e.g., redirect to a login page or show an error message.
-          }
-        }
-  
         // Rethrow the error to propagate it to the caller
         return throwError(() => error);
       })
     );
   }
-  
-  
+ 
   
   // Method for user login
   login(loginModel: any): Observable<User> {
@@ -64,21 +56,34 @@ export class AccountService {
 
   // Method for user registration
   register(registerModel: any): Observable<User> {
-    return this.http.post<User>(`${this.apiUrl}/register`, registerModel).pipe(
-      // Store token in localStorage and notify via userSource
-      map((user) => {
-        if (user?.token) {
-          localStorage.setItem('token', user.token);
-          this.userSource.next(user);
+    const email = registerModel.email;
+  
+    // Check if the email is available
+    return this.checkEmail(email).pipe(
+      switchMap((isAvailable) => {
+        if (isAvailable) {
+          // Email is available, proceed with registration
+          return this.http.post<User>(`${this.apiUrl}/register`, registerModel).pipe(
+            map((user) => {
+              if (user?.token) {
+                localStorage.setItem('token', user.token);
+                this.userSource.next(user);
+              }
+              return user;
+            })
+          );
+        } else {
+          // Email is not available, return an error
+          return throwError(() => new Error('Email is already in use'));
         }
-        return user;
       })
     );
   }
+  
 
   // Method to check if an email is available
   checkEmail(email: string): Observable<boolean> {
-    return this.http.get<boolean>(`${this.apiUrl}checkemail?email=${email}`);
+    return this.http.get<boolean>(`${this.apiUrl}/check-email-exists?email=${email}`);
   }
 
   // Method to logout the user

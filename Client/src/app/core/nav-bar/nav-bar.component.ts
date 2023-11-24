@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { AccountService } from 'src/app/account/account.service';
 import { BasketService } from 'src/app/basket/basket.service';
@@ -16,8 +16,7 @@ export class NavBarComponent implements OnInit {
   currentUser$?: Observable<User | null>; 
   constructor(
             public basketService: BasketService,
-            public accountService: AccountService,
-            private cdr: ChangeDetectorRef) {}
+            public accountService: AccountService) {}
   
   ngOnInit(): void {
     this.basket$ = this.basketService.basketSubject$;
@@ -26,7 +25,5 @@ export class NavBarComponent implements OnInit {
   logout() {
     this.accountService.logout();
   }
-  triggerChangeDetection() {
-    this.cdr.detectChanges();
-  }
+ 
 }
