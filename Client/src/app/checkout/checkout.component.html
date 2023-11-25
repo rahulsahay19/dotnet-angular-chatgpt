@@ -1,1 +1,38 @@
-<p>checkout works!</p>
+<div class="container">
+    <div class="row">
+      <div class="col-md-8">
+        <!-- Checkout Wizard -->
+        <ul class="nav nav-pills">
+          <li class="nav-item">
+            <a class="nav-link" [class.active]="currentStep === 'address'" (click)="setCurrentStep('address')">Address</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [class.active]="currentStep === 'shipment'" (click)="setCurrentStep('shipment')">Shipment</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [class.active]="currentStep === 'review'" (click)="setCurrentStep('review')">Review</a>
+          </li>
+        </ul>
+  
+        <!-- Address Section -->
+        <div *ngIf="currentStep === 'address'">
+          <app-address></app-address>
+        </div>
+  
+        <!-- Shipment Section -->
+        <div *ngIf="currentStep === 'shipment'">
+          <!-- Add your shipment form here -->
+        </div>
+  
+        <!-- Review Section -->
+        <div *ngIf="currentStep === 'review'">
+          <!-- Add your review/order summary here -->
+        </div>
+      </div>
+      <div class="col-md-4">
+        <!-- Order Summary -->
+        <app-order-totals></app-order-totals>
+      </div>
+    </div>
+  </div>
+  
