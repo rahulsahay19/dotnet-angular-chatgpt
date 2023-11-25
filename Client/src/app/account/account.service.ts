@@ -9,11 +9,19 @@ import { catchError, map, switchMap } from 'rxjs/operators';
   providedIn: 'root',
 })
 export class AccountService {
+  redirectUrl: string | null = null;
   private apiUrl = 'http://localhost:5103/api/Account';
   private userSource = new BehaviorSubject<User | null>(null);
   userSource$ = this.userSource.asObservable();
 
   constructor(private http: HttpClient, private router: Router) {}
+
+  isAuthenticated(): boolean {
+    // For example, check if there's a valid JWT token in local storage
+    const token = localStorage.getItem('token');
+    // Add your logic to validate the token if necessary
+    return !!token;
+  }
 
   loadUser(token: string) {
     let headers = new HttpHeaders();
