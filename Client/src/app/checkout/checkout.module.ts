@@ -19,7 +19,7 @@ import { ReviewComponent } from './review/review.component';
   imports: [
     CommonModule,
     CheckoutRoutingModule,
-    SharedModule
+    SharedModule,
   ]
 })
 export class CheckoutModule { }

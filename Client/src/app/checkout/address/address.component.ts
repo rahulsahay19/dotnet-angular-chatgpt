@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Address } from 'src/app/shared/models/address';
+import { CheckoutComponent } from '../checkout.component';
 
 @Component({
   selector: 'app-address',
@@ -10,14 +12,19 @@ import { Address } from 'src/app/shared/models/address';
 export class AddressComponent implements OnInit {
   addressForm: FormGroup; // Initialize here
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor(
+      private formBuilder: FormBuilder,
+      private router: Router,
+      private checkoutComponent: CheckoutComponent
+     ) {
     this.addressForm = this.formBuilder.group({
       Fname: ['', Validators.required],
       Lname: ['', Validators.required],
       Street: ['', Validators.required],
       City: ['', Validators.required],
       State: ['', Validators.required],
-      ZipCode: ['', [Validators.required, Validators.pattern(/^\d{5}(?:-\d{4})?$/)]],
+      ZipCode: ['', [Validators.required, Validators.pattern(/^\d{6}$/)]],
+
     });
   }
 
@@ -32,4 +39,15 @@ export class AddressComponent implements OnInit {
       console.log('Submitted Address:', addressData);
     }
   }
-}
+  goToNextStep() {
+    if (this.addressForm.valid) {
+      // Navigate to the shipment route
+      this.router.navigate(['/checkout/shipment']);
+  
+      // Set the current step in the CheckoutComponent
+      this.checkoutComponent.setCurrentStep('shipment');
+    }
+  }
+  
+  }
+

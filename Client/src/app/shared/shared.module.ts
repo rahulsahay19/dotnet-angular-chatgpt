@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { MatInputModule } from '@angular/material/input';
 import { CommonModule } from '@angular/common';
 import { PaginationModule } from 'ngx-bootstrap/pagination';
 import { PaginationHeaderComponent } from './components/pagination-header/pagination-header.component';
@@ -18,7 +19,8 @@ import { OrderTotalsComponent } from './order-totals/order-totals.component';
     FormsModule,
     ReactiveFormsModule,
     CarouselModule.forRoot(),
-    PaginationModule.forRoot()
+    PaginationModule.forRoot(),
+    MatInputModule
   ],
   exports:[
     PaginationHeaderComponent,
@@ -26,7 +28,9 @@ import { OrderTotalsComponent } from './order-totals/order-totals.component';
     OrderTotalsComponent,
     PaginationModule,
     CarouselModule,
+    FormsModule,
     ReactiveFormsModule,
+    MatInputModule
   ]
 })
 export class SharedModule { }

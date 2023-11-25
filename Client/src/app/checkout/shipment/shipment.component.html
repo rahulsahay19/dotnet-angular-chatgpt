@@ -1,1 +1,31 @@
-<p>shipment works!</p>
+<div>
+    <h3>Select Delivery Method</h3>
+    <div class="row">
+      <div class="col-md-6" *ngFor="let option of deliveryOptions">
+        <div class="card mb-4" style="background-color: #f8f9fa;"> 
+          <div class="card-body">
+            <h5 class="card-title">{{ option.name }} <i class="fas fa-shipping-fast"></i></h5>
+            <p class="card-text">{{ option.description }}</p>
+            <p class="card-text">
+              <strong>Delivery Time:</strong> {{ option.deliveryTime }}
+            </p>
+            <p class="card-text">
+              <strong>Price:</strong> {{ option.price | currency: 'USD' }}
+            </p>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                [value]="option.id"
+                [(ngModel)]="selectedOption"
+                name="deliveryOption"
+                id="deliveryOption{{ option.id }}"
+              >
+              <label class="form-check-label" for="deliveryOption{{ option.id }}">Select</label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

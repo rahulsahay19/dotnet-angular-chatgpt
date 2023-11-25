@@ -2,27 +2,49 @@
     <div class="mb-3">
       <label for="fname" class="form-label">First Name</label>
       <input type="text" class="form-control" id="fname" formControlName="Fname" required>
+      <mat-error *ngIf="addressForm.get('Fname')?.hasError('required') && addressForm.get('Fname')?.touched" class="error-message">
+        First Name is required.
+      </mat-error>
     </div>
     <div class="mb-3">
       <label for="lname" class="form-label">Last Name</label>
       <input type="text" class="form-control" id="lname" formControlName="Lname" required>
+      <mat-error *ngIf="addressForm.get('Lname')?.hasError('required') && addressForm.get('Lname')?.touched" class="error-message">
+        Last Name is required.
+      </mat-error>
     </div>
     <div class="mb-3">
       <label for="street" class="form-label">Street</label>
       <input type="text" class="form-control" id="street" formControlName="Street" required>
+      <mat-error *ngIf="addressForm.get('Street')?.hasError('required') && addressForm.get('Street')?.touched" class="error-message">
+        Street is required.
+      </mat-error>
     </div>
     <div class="mb-3">
       <label for="city" class="form-label">City</label>
       <input type="text" class="form-control" id="city" formControlName="City" required>
+      <mat-error *ngIf="addressForm.get('City')?.hasError('required') && addressForm.get('City')?.touched" class="error-message">
+        City is required.
+      </mat-error>
     </div>
     <div class="mb-3">
       <label for="state" class="form-label">State</label>
       <input type="text" class="form-control" id="state" formControlName="State" required>
+      <mat-error *ngIf="addressForm.get('State')?.hasError('required') && addressForm.get('State')?.touched" class="error-message">
+        State is required.
+      </mat-error>
     </div>
     <div class="mb-3">
       <label for="zipcode" class="form-label">Zip Code</label>
       <input type="text" class="form-control" id="zipcode" formControlName="ZipCode" required>
+      <mat-error *ngIf="addressForm.get('ZipCode')?.hasError('required') && addressForm.get('ZipCode')?.touched" class="error-message">
+        Zip Code is required.
+      </mat-error>
+      <mat-error *ngIf="addressForm.get('ZipCode')?.hasError('pattern') && addressForm.get('ZipCode')?.touched" class="error-message">
+        Invalid ZIP code.
+      </mat-error>
+      
     </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="button" class="btn btn-primary" (click)="goToNextStep()" [disabled]="!addressForm.valid">Next</button>
   </form>
   
