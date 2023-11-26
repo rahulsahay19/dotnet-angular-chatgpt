@@ -1,1 +1,33 @@
-<p>review works!</p>
+<div class="container mt-4" *ngIf="basket">
+    <h2>Your Items</h2>
+    <div *ngIf="basket.items && basket.items.length > 0">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Image</th>
+            <th scope="col">Product</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Price</th>
+            <th scope="col">Total</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of basket.items">
+            <td><img [src]="'assets/images/products/' + extractImageName(item)" [alt]="item.productName" width="50"></td>
+            <td>{{ item.productName }}</td>
+            <td>{{ item.quantity }}</td>
+            <td>{{ item.price | currency:"INR" }}</td>
+            <td>{{ (item.quantity * item.price) | currency:"INR" }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  
+    <!-- "Submit" button that navigates to the store page -->
+    <div class="text-center mt-3">
+      <button class="btn btn-success" (click)="submitOrder()">
+        Thank You
+      </button>
+    </div>
+  </div>
+  
