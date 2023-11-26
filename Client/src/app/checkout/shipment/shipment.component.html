@@ -10,7 +10,7 @@
               <strong>Delivery Time:</strong> {{ option.deliveryTime }}
             </p>
             <p class="card-text">
-              <strong>Price:</strong> {{ option.price | currency: 'USD' }}
+              <strong>Price:</strong> {{ option.price | currency: 'INR' }}
             </p>
             <div class="form-check">
               <input
@@ -20,6 +20,7 @@
                 [(ngModel)]="selectedOption"
                 name="deliveryOption"
                 id="deliveryOption{{ option.id }}"
+                (change)="updateShipmentPrice()"
               >
               <label class="form-check-label" for="deliveryOption{{ option.id }}">Select</label>
             </div>
@@ -27,5 +28,8 @@
         </div>
       </div>
     </div>
+    <button type="button" class="btn btn-primary mt-3" (click)="goToNext()">
+      <i class="fa fa-arrow-right"></i> Next
+    </button>
   </div>
   

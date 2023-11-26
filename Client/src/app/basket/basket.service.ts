@@ -3,19 +3,75 @@ import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject } from 'rxjs';
 import { Basket, BasketItem, BasketTotal } from '../shared/models/basket';
 import { Product } from '../shared/models/Product';
+import { DeliveryOption } from '../shared/models/deliveryOption';
 
 @Injectable({
   providedIn: 'root',
 })
 export class BasketService {
+  selectedDeliveryOption: DeliveryOption | undefined; // Define this property
   private basketSubject: BehaviorSubject<Basket | null> = new BehaviorSubject<Basket | null>(null);
   basketSubject$ = this.basketSubject.asObservable();
-  private basketTotalSubject = new BehaviorSubject<BasketTotal | null>(null); 
+
+  private basketTotalSubject = new BehaviorSubject<BasketTotal>({
+    subtotal: 0,
+    shipping: 0,
+    total: 0
+  });
+  //private basketTotalSubject = new BehaviorSubject<BasketTotal | null>(null); 
   basketTotalSubject$ = this.basketTotalSubject.asObservable();
   private readonly basketUrl = 'http://localhost:5103/api/Basket/'; 
 
 
   constructor(private http: HttpClient) {}
+
+   // Create a method to calculate shipping and total
+   calculateShippingAndTotal(): void {
+    // Get the selected delivery option from your data (you can access it from a variable or service)
+    const selectedDeliveryOption = this.selectedDeliveryOption;
+  
+    // Calculate subtotal (for example, based on items in the basket)
+    const subtotal = this.calculateSubtotal();
+  
+    // Calculate shipping based on the selected delivery option's price
+    const shipping = selectedDeliveryOption ? selectedDeliveryOption.price : 0; // Default to 0 if no option is selected
+  
+    // Calculate total by adding subtotal and shipping
+    const total = subtotal + shipping;
+  
+    // Update this.basketTotalSubject with the new values
+    const updatedBasketTotal = {
+      subtotal: subtotal,
+      shipping: shipping,
+      total: total,
+    };
+  
+    this.basketTotalSubject.next(updatedBasketTotal);
+  }
+
+  calculateSubtotal(): number {
+    const basket = this.basketSubject.value; // Get the current basket
+    let subtotal = 0;
+  
+    if (basket) {
+      for (const item of basket.items) {
+        subtotal += item.price * item.quantity; // Calculate the subtotal based on item prices and quantities
+      }
+    }
+  
+    return subtotal;
+  }
+  
+  updateShippingPrice(shippingPrice: number): void {
+    // Update the shipping price in the basketTotalSubject
+    const updatedBasketTotal = this.basketTotalSubject.value;
+    updatedBasketTotal.shipping = shippingPrice;
+    updatedBasketTotal.total = updatedBasketTotal.subtotal + shippingPrice;
+    this.basketTotalSubject.next(updatedBasketTotal);
+  }
+  
+  
+  
 
   getBasket(basketId: string) {
     return this.http.get<Basket>(this.basketUrl + basketId).subscribe({

@@ -8,4 +8,9 @@ import { BasketService } from 'src/app/basket/basket.service';
 })
 export class OrderTotalsComponent {
   constructor(public basketService: BasketService){}
+
+  // Create a method to update shipment price and total
+  updateShipmentAndTotal(): void {
+    this.basketService.calculateShippingAndTotal();
+  }
 }
