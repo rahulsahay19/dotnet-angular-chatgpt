@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Li/PoAcWwi6rmDhIB3Qvug4gybzYZZnD1V7IhNDWymYVdCbqmv6Nrkuxrc+Jlvtkm2vmzNrfMbB9867syxyAow==",
+  "dgSpecHash": "kbsLgS/a3BJnnTl4FxvOz19FJ9SEx/qumBaWqUFChJU+OwsJRZOjiF99f1CSRgXQQl4MvnUJDNZ5NlbrplrLig==",
   "success": true,
-  "projectFilePath": "/Users/rahsahay/Rahul/MyExperiments/MicroServices/dotnet/Ecommerce/Core/Core.csproj",
+  "projectFilePath": "/Users/rahsahay/Rahul/MyExperiments/MicroServices/dotnet/dotnet-angular-chatgpt/Core/Core.csproj",
   "expectedPackageFiles": [
     "/Users/rahsahay/.nuget/packages/microsoft.aspnetcore.cryptography.internal/6.0.25/microsoft.aspnetcore.cryptography.internal.6.0.25.nupkg.sha512",
     "/Users/rahsahay/.nuget/packages/microsoft.aspnetcore.cryptography.keyderivation/6.0.25/microsoft.aspnetcore.cryptography.keyderivation.6.0.25.nupkg.sha512",

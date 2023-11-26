@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "1vI+sKexLGw7EukulNHLmAAUU813v3Z3kT1p/N4Uho1mKU6QWHnCALFemVX7SIlBW8NJhW9gyXUZAdE9270Ilw==",
+  "dgSpecHash": "FezfnVu5xI98Rlr7Kc0wil7XINDuLfuYIBHiubcYS1k27xk1NMrOEa0yA0Ba0nuXWNJR2t9jjeOA4TdGmruzAg==",
   "success": true,
-  "projectFilePath": "/Users/rahsahay/Rahul/MyExperiments/MicroServices/dotnet/Ecommerce/API/API.csproj",
+  "projectFilePath": "/Users/rahsahay/Rahul/MyExperiments/MicroServices/dotnet/dotnet-angular-chatgpt/API/API.csproj",
   "expectedPackageFiles": [
     "/Users/rahsahay/.nuget/packages/automapper/12.0.1/automapper.12.0.1.nupkg.sha512",
     "/Users/rahsahay/.nuget/packages/automapper.extensions.microsoft.dependencyinjection/12.0.1/automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",

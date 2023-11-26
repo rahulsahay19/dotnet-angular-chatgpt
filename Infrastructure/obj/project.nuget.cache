@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "PE7pK1VxrzJATzY4/gHtcrQio1+DiN/KXKISSAbvQpSY0h4qFTA3tmGnW+y9AEvKGPT44l07ccNMl5MhGvJ8Xg==",
+  "dgSpecHash": "ldmV6IepNxl6KFuxPQAjwZs56Mo5KQ7hHRCa1cmeyNjtm2erqDVrGaI5IFsLr0q4YhiWGr3Y7vb8hbLqyB31sA==",
   "success": true,
-  "projectFilePath": "/Users/rahsahay/Rahul/MyExperiments/MicroServices/dotnet/Ecommerce/Infrastructure/Infrastructure.csproj",
+  "projectFilePath": "/Users/rahsahay/Rahul/MyExperiments/MicroServices/dotnet/dotnet-angular-chatgpt/Infrastructure/Infrastructure.csproj",
   "expectedPackageFiles": [
     "/Users/rahsahay/.nuget/packages/humanizer.core/2.14.1/humanizer.core.2.14.1.nupkg.sha512",
     "/Users/rahsahay/.nuget/packages/microsoft.aspnetcore.cryptography.internal/6.0.25/microsoft.aspnetcore.cryptography.internal.6.0.25.nupkg.sha512",

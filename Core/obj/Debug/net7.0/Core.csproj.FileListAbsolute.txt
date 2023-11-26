@@ -10,3 +10,15 @@
 /Users/rahsahay/Rahul/MyExperiments/MicroServices/dotnet/Ecommerce/Core/obj/Debug/net7.0/Core.pdb
 /Users/rahsahay/Rahul/MyExperiments/MicroServices/dotnet/Ecommerce/Core/obj/Debug/net7.0/ref/Core.dll
 /Users/rahsahay/Rahul/MyExperiments/MicroServices/dotnet/Ecommerce/Core/obj/Debug/net7.0/Core.csproj.AssemblyReference.cache
+/Users/rahsahay/Rahul/MyExperiments/MicroServices/dotnet/dotnet-angular-chatgpt/Core/bin/Debug/net7.0/Core.deps.json
+/Users/rahsahay/Rahul/MyExperiments/MicroServices/dotnet/dotnet-angular-chatgpt/Core/bin/Debug/net7.0/Core.dll
+/Users/rahsahay/Rahul/MyExperiments/MicroServices/dotnet/dotnet-angular-chatgpt/Core/bin/Debug/net7.0/Core.pdb
+/Users/rahsahay/Rahul/MyExperiments/MicroServices/dotnet/dotnet-angular-chatgpt/Core/obj/Debug/net7.0/Core.csproj.AssemblyReference.cache
+/Users/rahsahay/Rahul/MyExperiments/MicroServices/dotnet/dotnet-angular-chatgpt/Core/obj/Debug/net7.0/Core.GeneratedMSBuildEditorConfig.editorconfig
+/Users/rahsahay/Rahul/MyExperiments/MicroServices/dotnet/dotnet-angular-chatgpt/Core/obj/Debug/net7.0/Core.AssemblyInfoInputs.cache
+/Users/rahsahay/Rahul/MyExperiments/MicroServices/dotnet/dotnet-angular-chatgpt/Core/obj/Debug/net7.0/Core.AssemblyInfo.cs
+/Users/rahsahay/Rahul/MyExperiments/MicroServices/dotnet/dotnet-angular-chatgpt/Core/obj/Debug/net7.0/Core.csproj.CoreCompileInputs.cache
+/Users/rahsahay/Rahul/MyExperiments/MicroServices/dotnet/dotnet-angular-chatgpt/Core/obj/Debug/net7.0/Core.dll
+/Users/rahsahay/Rahul/MyExperiments/MicroServices/dotnet/dotnet-angular-chatgpt/Core/obj/Debug/net7.0/refint/Core.dll
+/Users/rahsahay/Rahul/MyExperiments/MicroServices/dotnet/dotnet-angular-chatgpt/Core/obj/Debug/net7.0/Core.pdb
+/Users/rahsahay/Rahul/MyExperiments/MicroServices/dotnet/dotnet-angular-chatgpt/Core/obj/Debug/net7.0/ref/Core.dll

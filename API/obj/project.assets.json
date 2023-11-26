@@ -2813,11 +2813,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/rahsahay/Rahul/MyExperiments/MicroServices/dotnet/Ecommerce/API/API.csproj",
+      "projectUniqueName": "/Users/rahsahay/Rahul/MyExperiments/MicroServices/dotnet/dotnet-angular-chatgpt/API/API.csproj",
       "projectName": "API",
-      "projectPath": "/Users/rahsahay/Rahul/MyExperiments/MicroServices/dotnet/Ecommerce/API/API.csproj",
+      "projectPath": "/Users/rahsahay/Rahul/MyExperiments/MicroServices/dotnet/dotnet-angular-chatgpt/API/API.csproj",
       "packagesPath": "/Users/rahsahay/.nuget/packages/",
-      "outputPath": "/Users/rahsahay/Rahul/MyExperiments/MicroServices/dotnet/Ecommerce/API/obj/",
+      "outputPath": "/Users/rahsahay/Rahul/MyExperiments/MicroServices/dotnet/dotnet-angular-chatgpt/API/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/rahsahay/.nuget/NuGet/NuGet.Config"
@@ -2832,8 +2832,8 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "/Users/rahsahay/Rahul/MyExperiments/MicroServices/dotnet/Ecommerce/Infrastructure/Infrastructure.csproj": {
-              "projectPath": "/Users/rahsahay/Rahul/MyExperiments/MicroServices/dotnet/Ecommerce/Infrastructure/Infrastructure.csproj"
+            "/Users/rahsahay/Rahul/MyExperiments/MicroServices/dotnet/dotnet-angular-chatgpt/Infrastructure/Infrastructure.csproj": {
+              "projectPath": "/Users/rahsahay/Rahul/MyExperiments/MicroServices/dotnet/dotnet-angular-chatgpt/Infrastructure/Infrastructure.csproj"
             }
           }
         }

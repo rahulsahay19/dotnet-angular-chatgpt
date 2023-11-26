@@ -824,11 +824,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/rahsahay/Rahul/MyExperiments/MicroServices/dotnet/Ecommerce/Core/Core.csproj",
+      "projectUniqueName": "/Users/rahsahay/Rahul/MyExperiments/MicroServices/dotnet/dotnet-angular-chatgpt/Core/Core.csproj",
       "projectName": "Core",
-      "projectPath": "/Users/rahsahay/Rahul/MyExperiments/MicroServices/dotnet/Ecommerce/Core/Core.csproj",
+      "projectPath": "/Users/rahsahay/Rahul/MyExperiments/MicroServices/dotnet/dotnet-angular-chatgpt/Core/Core.csproj",
       "packagesPath": "/Users/rahsahay/.nuget/packages/",
-      "outputPath": "/Users/rahsahay/Rahul/MyExperiments/MicroServices/dotnet/Ecommerce/Core/obj/",
+      "outputPath": "/Users/rahsahay/Rahul/MyExperiments/MicroServices/dotnet/dotnet-angular-chatgpt/Core/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/rahsahay/.nuget/NuGet/NuGet.Config"
