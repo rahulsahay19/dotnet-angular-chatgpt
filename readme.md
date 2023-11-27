@@ -28,7 +28,7 @@ Here, you will learn variety of technologies like
     Angular Reactive Forms
     etc    
 
-Link:- Building FullStack App using .NetCore, Angular & ChatGPT
+Link:- https://www.udemy.com/course/building-fullstack-app-using-netcore-angular-chatgpt/?couponCode=BEST-PRICE
 
 Other Course Links:
 
