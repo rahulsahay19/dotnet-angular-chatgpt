@@ -102,4 +102,6 @@ Client Structure goes like
 
 ![11th](https://github.com/rahulsahay19/Blog-Images/assets/3886381/fae78bd1-0f5a-4ea7-a0a7-bcd605a000c8)
 
-Happy Learning
+Thank You for Exploring This Course!
+
+We're thrilled you've taken the time to explore what this comprehensive course on Microservices has to offer. Your interest in advancing your skills and knowledge in the Microservices field is commendable, and we're excited to be a part of your learning journey.
