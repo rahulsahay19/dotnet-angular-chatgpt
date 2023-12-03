@@ -35,8 +35,11 @@ Other Course Links:
     Free Course:- https://www.udemy.com/course/getting-started-with-clean-architecture-using-net-core/?referralCode=4D823A32070DF730A57B
 
     Microservices Course:- https://www.udemy.com/course/creating-net-core-microservices-using-clean-architecture/?couponCode=BEST-PRICE
+    
+    Docker Course:- https://www.udemy.com/course/docker-for-net-and-angular-developers/?couponCode=FLASH-SALE
 
-    Docker Course:- https://www.udemy.com/course/docker-for-net-and-angular-developers/?couponCode=BEST-PRICE
+    AI Mastery:- https://www.udemy.com/course/ai-mastery-unleashed-chatgpt-and-beyond/?couponCode=FLASH-SALE
+
 
 ## Who should take this course
 
