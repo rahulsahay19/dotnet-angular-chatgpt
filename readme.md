@@ -35,8 +35,11 @@ Other Course Links:
     Free Course:- https://www.udemy.com/course/getting-started-with-clean-architecture-using-net-core/?referralCode=4D823A32070DF730A57B
 
     Microservices Course:- https://www.udemy.com/course/creating-net-core-microservices-using-clean-architecture/?couponCode=BEST-PRICE
+    
+    Docker Course:- https://www.udemy.com/course/docker-for-net-and-angular-developers/?couponCode=FLASH-SALE
 
-    Docker Course:- https://www.udemy.com/course/docker-for-net-and-angular-developers/?couponCode=BEST-PRICE
+    AI Mastery:- https://www.udemy.com/course/ai-mastery-unleashed-chatgpt-and-beyond/?couponCode=FLASH-SALE
+
 
 ## Who should take this course
 
@@ -103,5 +106,7 @@ Client Structure goes like
 ![11th](https://github.com/rahulsahay19/Blog-Images/assets/3886381/fae78bd1-0f5a-4ea7-a0a7-bcd605a000c8)
 
 Thank You for Exploring This Course!
+
+We're thrilled you've taken the time to explore what this comprehensive course on Microservices has to offer. Your interest in advancing your skills and knowledge in the Microservices field is commendable, and we're excited to be a part of your learning journey.
 
 We're thrilled you've taken the time to explore what this comprehensive course on Microservices has to offer. Your interest in advancing your skills and knowledge in the .Net field is commendable, and we're excited to be a part of your learning journey.
