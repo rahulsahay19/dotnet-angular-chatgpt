@@ -107,6 +107,4 @@ Client Structure goes like
 
 Thank You for Exploring This Course!
 
-We're thrilled you've taken the time to explore what this comprehensive course on Microservices has to offer. Your interest in advancing your skills and knowledge in the Microservices field is commendable, and we're excited to be a part of your learning journey.
-
-We're thrilled you've taken the time to explore what this comprehensive course on Microservices has to offer. Your interest in advancing your skills and knowledge in the .Net field is commendable, and we're excited to be a part of your learning journey.
+We're thrilled you've taken the time to explore what this comprehensive course on .Net, Angular & ChatGPT has to offer. Your interest in advancing your skills and knowledge in the FullStack field is commendable, and we're excited to be a part of your learning journey.
